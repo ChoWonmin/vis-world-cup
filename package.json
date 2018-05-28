@@ -6,6 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "circos": "^2.1.0",
     "cookie-parser": "~1.4.3",
     "d3": "^5.4.0",
     "debug": "~2.6.9",
