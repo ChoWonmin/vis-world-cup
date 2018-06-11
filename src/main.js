@@ -174,7 +174,7 @@ const Constant = new function() {
             'Switzerland': 'sui.png',
         }
     };
-    this.pathDisableColor = '#E0E0E0';
+    this.pathBackgroundColor = '#E0E0E0';
 };
 
 const parallel = new function() {
@@ -183,7 +183,7 @@ const parallel = new function() {
     const height = 824;
 
     const g = root.append('g');
-    const disableG = g.append('g');
+    const backgroundG = g.append('g');
     const activeG = g.append('g');
     const nationDiv = root.append('g');
     g.attr('transform', 'translate(20,20)');
@@ -336,7 +336,7 @@ const parallel = new function() {
                 start: 0,
                 end: 0,
             };
-            
+
             filterSection.call(d3.drag()
                 .on('start', function() {
                     filter = g.append('rect').attrs({
@@ -416,10 +416,10 @@ const parallel = new function() {
             return (_.find(coords, coord => x == coord.x)).y;
         }
 
-        this.renderDisabledLine = function() {
-            path = disableG.append('path').attrs({
+        this.renderbackgroundLine = function() {
+            path = backgroundG.append('path').attrs({
                 d: line(coords),
-                stroke: Constant.pathDisableColor,
+                stroke: Constant.pathBackgroundColor,
                 opacity: 0.7,
                 fill: 'none',
                 strokeWeight: 10,
@@ -488,7 +488,7 @@ const parallel = new function() {
             });
 
             _.forEach(nodes, node => {
-                node.renderDisabledLine();
+                node.renderbackgroundLine();
                 node.render();
             });
 
