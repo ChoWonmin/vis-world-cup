@@ -1,15 +1,36 @@
+#renderer {
+  width: 1080px;
+  height: 880px;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1); }
+
+.flex-item {
+  flex: 1; }
+
+.btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  background-color: #ec6c60;
+  text-align: center;
+  font-size: 16px; }
+  .btn i {
+    color: white;
+    line-height: 60px; }
+  .btn:hover {
+    background-color: #ef8177; }
+  .btn:active {
+    background-color: #e95749; }
+
 .container {
-  width: 100%;
-  height: 100vh; }
+  width: 100%; }
   .container .header {
     width: 100%;
-    height: 80px; }
+    height: 80px;
+    padding: 8px; }
   .container .content {
     display: flex;
     width: 100%;
     height: calc(100% - 80px); }
-    .container .content .main-wrapper {
-      flex: 3; }
     .container .content .side-wrapper {
       flex: 1; }
       .container .content .side-wrapper .top {

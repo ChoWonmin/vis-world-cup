@@ -2,16 +2,17 @@ extends layout
 
 block content
   link(rel='stylesheet', href='/stylesheets/main.css')
-  .container.test
-    .header.test
-    .content.flex
-      .main-wrapper.test
-        svg#circos
+  .container
+    .header
+      .reset-btn.btn
+        i.fas.fa-redo
+    .content
+      .main-wrapper
+        svg#renderer
       .side-wrapper.test
         .top.test
           .rader
         .bottom.test
           .bar-char
 
-  script(src='/circos/dist/circos.min.js')
   script(src='main.js')

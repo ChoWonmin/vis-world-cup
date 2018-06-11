@@ -1,17 +1,43 @@
 $header-size: 80px
 
+$btn-color: #ec6c60
+$btn-size: 60px
+
+#renderer
+  width: 1080px
+  height: 880px
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, .1)
+
+.flex-item
+  flex: 1
+
+
+.btn
+  width: $btn-size
+  height: $btn-size
+  border-radius: 100%
+  background-color: $btn-color
+  text-align: center
+  font-size: 16px
+  i
+    color: white
+    line-height: $btn-size
+  &:hover
+    background-color: lighten($btn-color, 5)
+  &:active
+    background-color: darken($btn-color, 5)
+
 .container
   width: 100%
-  height: 100vh
   .header
     width: 100%
     height: $header-size
+    padding: 8px
   .content
     display: flex
     width: 100%
     height: calc(100% - #{$header-size})
     .main-wrapper
-      flex: 3
     .side-wrapper
       flex: 1
       .top
