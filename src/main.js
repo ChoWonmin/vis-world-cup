@@ -2,8 +2,8 @@ const Constant = new function() {
     this.filename = 'data/worldCub2010.csv';
     this.categoryColumns = [ 'year', 'group', 'match', 'score', 'shots', 'target',
         'LB', 'CB', 'RB', 'LM', 'CM', 'RM', 'LF', 'CF', 'RF', 'LA', 'CA', 'RA',
-        'coner kicks', 'MPC', 'MPA', 'LPC', 'SPC', 'TPC', 'TPA', 'LPA', 'SPA','result', 'fouls',
-        'LPP', 'SPP', 'LPA_SPA', 'LPC_SPC', 'SPC_SPA' ];
+        'coner kicks', 'MPC', 'MPA', 'LPC', 'SPC', 'TPC', 'TPA', 'LPA', 'SPA', 'result', 'fouls',
+        'LPP', 'SPP', 'LPA_SPA', 'LPC_SPC', 'SPC_SPA', 'LPC_LPA' ];
     this.mappingColumns = { team: true, formation: true, Opponent: true };
     this.columneByPathColor = 'result';
     /*
@@ -48,11 +48,14 @@ const Constant = new function() {
     };
     */
     this.color = {
-        'w':'#ec6c60',
-        'd':'#ecaa41',
-        'l':'#a4d086',
-    }
+        'w': '#ec6c60',
+        'd': '#ecaa41',
+        'l': '#a4d086',
+    };
 
+    this.position = [
+        [ 'LB', 'LM', 'LF' ], [ 'CB', 'CM', 'CF' ], [ 'RB', 'RM', 'RF' ],
+    ];
     this.mappingData = {
         team: {
             'South Africa': 32,
@@ -177,6 +180,105 @@ const Constant = new function() {
     this.pathBackgroundColor = '#E0E0E0';
 };
 
+const possesionView = new function() {
+    const root = d3.select('#possession-view');
+    const width = root.node().getBoundingClientRect().width;
+    const height = root.node().getBoundingClientRect().height;
+
+    const g = root.append('g');
+    const title = g.append('g');
+    const ground = g.append('g');
+
+    const groundHeight = height * 2 / 3;
+    ground.attr('transform', 'translate(0,' + height / 3 + ')');
+
+    this.renderGround = function() {
+        ground.append('rect').attrs({
+            x: 0,
+            y: 0,
+            width: width,
+            height: groundHeight,
+            fill: '#a4d086',
+        });
+        ground.append('rect').attrs({
+            x: 0,
+            y: 0,
+            width: width,
+            height: groundHeight,
+            fill: 'none',
+            stroke: '#cccccc',
+        });
+
+        ground.append('line').attrs({
+            x1: width / 2,
+            y1: 2,
+            x2: width / 2,
+            y2: groundHeight - 2,
+            stroke: '#fafafa',
+        }).attr('stroke-width', 3);
+        const radius = 20;
+        ground.append('circle').attrs({
+            cx: width / 2,
+            cy: groundHeight / 2,
+            r: radius,
+            fill: 'none',
+            stroke: '#fafafa',
+        }).attr('stroke-width', 3);
+    };
+
+    this.addEvent = function(data) {
+        const heatMapWidth = width / 3;
+        const heatMapHeight = groundHeight / 3;
+
+        ground.selectAll('*').remove();
+
+        var svg = title.append('svg').attrs({
+            width: 50,
+            height: 40,
+            border: '3px solid #ccc'
+        });
+
+        svg.append('svg:image').attrs({
+            'xlink:href': 'image/' + Constant.mappingData[ 'image' ][ data['team'] ],
+            x: 4,
+            y: 4,
+            width: 40,
+            height: 40,
+        });
+
+        title.append('text').attrs({
+            x: 50,
+            y: 24,
+            fill: '#414e5e',
+        }).text(data['team']);
+
+        for (var i = 0; i < 3; i++) {
+            for (var j = 0; j < 3; j++) {
+                const heatMapX = heatMapWidth * j;
+                const heatMapY = heatMapHeight * i;
+
+                ground.append('rect').attrs({
+                    x: heatMapX,
+                    y: heatMapY,
+                    width: heatMapWidth,
+                    height: heatMapHeight,
+                    fill: '#ee1719',
+                }).style('opacity', 0.2 + 0.03 * data[ Constant.position[ i ][ j ] ]);
+                ground.append('text').attrs({
+                    x: heatMapX + 20,
+                    y: heatMapY + 20,
+                    fill: '#fafafa',
+                }).text(data[ Constant.position[ i ][ j ] ]);
+            }
+            ;
+        }
+        ;
+
+        console.log(data);
+    };
+
+};
+
 const parallel = new function() {
     const root = d3.select('#renderer');
     const width = 1060;
@@ -203,9 +305,9 @@ const parallel = new function() {
             return d.y;
         })
         .curve(d3.curveLinear);
-        //.curve(d3.curveCardinal);
-        //.curve(d3.curveMonotoneX);
-        //.curve(d3.curveCatmullRom);
+    //.curve(d3.curveCardinal);
+    //.curve(d3.curveMonotoneX);
+    //.curve(d3.curveCatmullRom);
 
 
     this.actionInit = function(data, columns) {
@@ -224,28 +326,7 @@ const parallel = new function() {
                 });
             });
             filters = [];
-        });
-
-        colorDropDown.on("click", function() {
-            const seperator = d3.select(this).text();
-            const seperateData = _.map(data, d => d[ seperator ]);
-            const orderedData = _.orderBy(seperateData);
-            const bound = {
-                oneThird: orderedData[ orderedData.length / 3 ],
-                twoThird: orderedData[ orderedData.length * 2 / 3 ],
-            }
-            _.forEach(seperateData, (d, i) => {
-                if (d <= bound.oneThird)
-                    nodes[ i ].setAttr({ stroke: Constant.color[ 'low' ] });
-                else if (d <= bound.twoThird)
-                    nodes[ i ].setAttr({ stroke: Constant.color[ 'medium' ] });
-                else
-                    nodes[ i ].setAttr({ stroke: Constant.color[ 'high' ] });
-            });
-        });
-
-        colorBtn.on("click", function() {
-
+            possesionView.renderGround();
         });
 
     };
@@ -430,14 +511,21 @@ const parallel = new function() {
             path = activeG.append('path').attrs({
                 d: line(coords),
                 stroke: color,
-                opacity: 0.7,
+                opacity: 0.5,
                 fill: 'none',
                 strokeWeight: 10,
-            });
-        };
+            }).attr('stroke-width', 3);
 
-        this.setAttr = function(obj) {
-            path.attrs(obj);
+            path.on('mouseover', function() {
+                path.attr('stroke', '#414e5e');
+            })
+                .on('mouseout', function() {
+                    path.attr('stroke', color);
+                })
+
+            path.on('click', function() {
+                possesionView.addEvent(data);
+            });
         };
 
         return this;
@@ -504,10 +592,9 @@ const parallel = new function() {
         })
     };
 
-    this.activeNode = function() {
-
-    };
-
 };
 
 parallel.draw();
+possesionView.renderGround();
+
+
