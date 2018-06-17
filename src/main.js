@@ -388,12 +388,30 @@ const parallel = new function() {
 
         this.render = function() {
             _.forEach(nations, (nation, i) => {
+                const y = (imageHeight + padding) * i;
                 svg.append('svg:image').attrs({
                     'xlink:href': 'image/' + Constant.mappingData[ 'image' ][ nation ],
                     x: 0,
-                    y: (imageHeight + padding) * i,
+                    y: y,
                     width: imageWidth,
                     height: imageHeight,
+                }).on('click',function() {
+                    activeG.selectAll('*').remove();
+                    selectNodes = [];
+                    _.forEach(filters, filter => {
+                        filter.attrs({
+                            opacity: 0,
+                        });
+                    });
+                    filters = [];
+
+                    _.forEach(nodes, node => {
+                        const coordY = node.getCoordYByX(axies['team'].getCoord().x);
+
+                        if (y <= coordY && coordY <= y+imageHeight)
+                            node.render();
+
+                    });
                 });
             });
         }
