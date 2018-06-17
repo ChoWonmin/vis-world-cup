@@ -3,7 +3,7 @@ const Constant = new function() {
     this.categoryColumns = [ 'year', 'group', 'match', 'score', 'shots', 'target',
         'LB', 'CB', 'RB', 'LM', 'CM', 'RM', 'LF', 'CF', 'RF', 'LA', 'CA', 'RA',
         'coner kicks', 'MPC', 'MPA', 'LPC', 'SPC', 'TPC', 'TPA', 'LPA', 'SPA', 'result', 'fouls',
-        'LPP', 'SPP', 'LPA_SPA', 'LPC_SPC', 'SPC_SPA', 'LPC_LPA' ];
+        'LPP', 'SPP', 'LPA_SPA', 'LPC_SPC', 'SPC_SPA', 'LPC_LPA', 'Opponent' ];
     this.mappingColumns = { team: true, formation: true, Opponent: true };
     this.columneByPathColor = 'result';
     /*
@@ -189,36 +189,45 @@ const possesionView = new function() {
     const title = g.append('g');
     const ground = g.append('g');
 
+    const groundWidth = width / 2 - 2;
     const groundHeight = height * 2 / 3;
     ground.attr('transform', 'translate(0,' + height / 3 + ')');
 
-    this.renderGround = function() {
+    this.init = function() {
+        title.selectAll('*').remove();
+        ground.selectAll('*').remove();
+
+        this.renderGround(0);
+        this.renderGround(width / 2 + 4);
+    };
+    this.renderGround = function(x) {
         ground.append('rect').attrs({
-            x: 0,
+            x: x,
             y: 0,
-            width: width,
+            width: groundWidth,
             height: groundHeight,
             fill: '#a4d086',
         });
         ground.append('rect').attrs({
-            x: 0,
+            x: x,
             y: 0,
-            width: width,
+            width: groundWidth,
             height: groundHeight,
             fill: 'none',
             stroke: '#cccccc',
         });
 
         ground.append('line').attrs({
-            x1: width / 2,
+            x1: groundWidth / 2 + x,
             y1: 2,
-            x2: width / 2,
+            x2: groundWidth / 2 + x,
             y2: groundHeight - 2,
             stroke: '#fafafa',
         }).attr('stroke-width', 3);
+
         const radius = 20;
         ground.append('circle').attrs({
-            cx: width / 2,
+            cx: groundWidth / 2 + x,
             cy: groundHeight / 2,
             r: radius,
             fill: 'none',
@@ -226,31 +235,41 @@ const possesionView = new function() {
         }).attr('stroke-width', 3);
     };
 
-    this.addEvent = function(data) {
-        const heatMapWidth = width / 3;
-        const heatMapHeight = groundHeight / 3;
-
+    this.addEvent = function(team, opponent) {
+        title.selectAll('*').remove();
         ground.selectAll('*').remove();
 
+        this.draw(0, team);
+        this.draw(width / 2 + 4, opponent);
+    }
+    this.draw = function(x, data) {
+        const heatMapWidth = groundWidth / 3;
+        const heatMapHeight = groundHeight / 3;
+
         var svg = title.append('svg').attrs({
-            width: 50,
+            width: width,
             height: 40,
             border: '3px solid #ccc'
         });
 
         svg.append('svg:image').attrs({
-            'xlink:href': 'image/' + Constant.mappingData[ 'image' ][ data['team'] ],
-            x: 4,
+            'xlink:href': 'image/' + Constant.mappingData[ 'image' ][ data[ 'team' ] ],
+            x: 4 + x,
             y: 4,
             width: 40,
             height: 40,
         });
 
         title.append('text').attrs({
-            x: 50,
+            x: 50 + x,
             y: 24,
             fill: '#414e5e',
-        }).text(data['team']);
+        }).text(data[ 'team' ]);
+        title.append('text').attrs({
+            x: 50 + x,
+            y: 48,
+            fill: '#414e5e',
+        }).text(data[ 'formation' ]);
 
         for (var i = 0; i < 3; i++) {
             for (var j = 0; j < 3; j++) {
@@ -258,23 +277,24 @@ const possesionView = new function() {
                 const heatMapY = heatMapHeight * i;
 
                 ground.append('rect').attrs({
-                    x: heatMapX,
+                    x: heatMapX + x,
                     y: heatMapY,
                     width: heatMapWidth,
                     height: heatMapHeight,
-                    fill: '#ee1719',
+                    fill: 'darkgreen',
                 }).style('opacity', 0.2 + 0.03 * data[ Constant.position[ i ][ j ] ]);
                 ground.append('text').attrs({
-                    x: heatMapX + 20,
+                    x: heatMapX + 20 + x,
                     y: heatMapY + 20,
                     fill: '#fafafa',
                 }).text(data[ Constant.position[ i ][ j ] ]);
             }
             ;
+
         }
         ;
 
-        console.log(data);
+
     };
 
 };
@@ -288,8 +308,8 @@ const parallel = new function() {
     const backgroundG = g.append('g');
     const activeG = g.append('g');
     const nationDiv = root.append('g');
-    g.attr('transform', 'translate(20,20)');
-    nationDiv.attr('transform', 'translate(20,12)');
+    g.attr('transform', 'translate(80,20)');
+    nationDiv.attr('transform', 'translate(10,12)');
 
     const range = {};
     const axies = {};
@@ -305,15 +325,9 @@ const parallel = new function() {
             return d.y;
         })
         .curve(d3.curveLinear);
-    //.curve(d3.curveCardinal);
-    //.curve(d3.curveMonotoneX);
-    //.curve(d3.curveCatmullRom);
-
 
     this.actionInit = function(data, columns) {
         const resetBtn = d3.select('.reset-btn');
-        const colorDropDown = d3.selectAll('.item');
-        const colorBtn = d3.selectAll('.color-picker');
 
         resetBtn.on("click", function() {
             selectNodes = [];
@@ -326,14 +340,15 @@ const parallel = new function() {
                 });
             });
             filters = [];
-            possesionView.renderGround();
+
+            possesionView.init();
         });
 
     };
 
     const Axis = function(min, max, index, axisCount, column) {
         const diff = max - min;
-        const x = width * index / axisCount + 60;
+        const x = width * index / axisCount;
 
         this.getCoord = function(val) {
             return {
@@ -349,7 +364,7 @@ const parallel = new function() {
                 x2: x,
                 y2: height,
                 stroke: '#414e5e',
-            });
+            }).attr('stroke-width', 2);
             g.append('text').attrs({
                 x: x - 16,
                 y: height + 24,
@@ -371,23 +386,9 @@ const parallel = new function() {
             border: '3px solid #ccc'
         });
 
-        var svg2 = nationDiv.append('svg').attrs({
-            x: width - 60,
-            width: imageWidth,
-            height: height + 30,
-            border: '3px solid #ccc'
-        });
-
         this.render = function() {
             _.forEach(nations, (nation, i) => {
                 svg.append('svg:image').attrs({
-                    'xlink:href': 'image/' + Constant.mappingData[ 'image' ][ nation ],
-                    x: 0,
-                    y: (imageHeight + padding) * i,
-                    width: imageWidth,
-                    height: imageHeight,
-                });
-                svg2.append('svg:image').attrs({
                     'xlink:href': 'image/' + Constant.mappingData[ 'image' ][ nation ],
                     x: 0,
                     y: (imageHeight + padding) * i,
@@ -474,7 +475,7 @@ const parallel = new function() {
         }
     }
 
-    const Node = function(data) {
+    const Node = function(data, opponent) {
         const color = Constant.color[ data[ Constant.columneByPathColor ] ];
         let path;
 
@@ -524,7 +525,7 @@ const parallel = new function() {
                 })
 
             path.on('click', function() {
-                possesionView.addEvent(data);
+                possesionView.addEvent(data, opponent);
             });
         };
 
@@ -535,6 +536,7 @@ const parallel = new function() {
         d3.csv(Constant.filename, data => {
             const columns = data.columns;
             const nations = _.uniq(_.map(data, d => d[ 'team' ]));
+
 
             _.forEach(Constant.categoryColumns, rc => {
                 _.remove(columns, function(column) {
@@ -567,7 +569,11 @@ const parallel = new function() {
             });
 
             const nationAxis = new NationAxis(nations);
-            nodes = _.map(data, d => new Node(d));
+            nodes = _.map(data, (d, i) => {
+
+                opponent = (i % 2 == 1) ? data[ i - 1 ] : data[ i + 1 ];
+                return new Node(d, opponent);
+            });
 
             nationAxis.render();
 
@@ -595,6 +601,6 @@ const parallel = new function() {
 };
 
 parallel.draw();
-possesionView.renderGround();
+possesionView.init();
 
 
