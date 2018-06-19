@@ -178,6 +178,10 @@ const Constant = new function() {
         }
     };
     this.pathBackgroundColor = '#E0E0E0';
+
+    this.path = {
+        flag: 'image/nation-flag/'
+    }
 };
 
 const possesionView = new function() {
@@ -253,7 +257,7 @@ const possesionView = new function() {
         });
 
         svg.append('svg:image').attrs({
-            'xlink:href': 'image/' + Constant.mappingData[ 'image' ][ data[ 'team' ] ],
+            'xlink:href': Constant.path[ 'flag' ] + Constant.mappingData[ 'image' ][ data[ 'team' ] ],
             x: 4 + x,
             y: 4,
             width: 40,
@@ -288,21 +292,18 @@ const possesionView = new function() {
                     y: heatMapY + 20,
                     fill: '#fafafa',
                 }).text(data[ Constant.position[ i ][ j ] ]);
-            }
-            ;
+            };
 
-        }
-        ;
-
-
+        };
     };
 
 };
 
 const parallel = new function() {
+    const that = this;
     const root = d3.select('#renderer');
-    const width = 1060;
-    const height = 824;
+    const width = root.node().getBoundingClientRect().width;
+    const height = root.node().getBoundingClientRect().height - 60;
 
     const g = root.append('g');
     const backgroundG = g.append('g');
@@ -330,21 +331,25 @@ const parallel = new function() {
         const resetBtn = d3.select('.reset-btn');
 
         resetBtn.on("click", function() {
-            selectNodes = [];
-            _.forEach(nodes, node => {
-                node.render();
-            });
-            _.forEach(filters, filter => {
-                filter.attrs({
-                    opacity: 0,
-                });
-            });
-            filters = [];
 
-            possesionView.init();
         });
 
     };
+    this.renew = function() {
+        activeG.selectAll('*').remove();
+        selectNodes = [];
+        _.forEach(nodes, node => {
+            node.render();
+        });
+        _.forEach(filters, filter => {
+            filter.attrs({
+                opacity: 0,
+            });
+        });
+        filters = [];
+
+        possesionView.init();
+    }
 
     const Axis = function(min, max, index, axisCount, column) {
         const diff = max - min;
@@ -390,12 +395,12 @@ const parallel = new function() {
             _.forEach(nations, (nation, i) => {
                 const y = (imageHeight + padding) * i;
                 svg.append('svg:image').attrs({
-                    'xlink:href': 'image/' + Constant.mappingData[ 'image' ][ nation ],
+                    'xlink:href': Constant.path[ 'flag' ] + Constant.mappingData[ 'image' ][ nation ],
                     x: 0,
                     y: y,
                     width: imageWidth,
                     height: imageHeight,
-                }).on('click',function() {
+                }).on('click', function() {
                     activeG.selectAll('*').remove();
                     selectNodes = [];
                     _.forEach(filters, filter => {
@@ -406,9 +411,9 @@ const parallel = new function() {
                     filters = [];
 
                     _.forEach(nodes, node => {
-                        const coordY = node.getCoordYByX(axies['team'].getCoord().x);
+                        const coordY = node.getCoordYByX(axies[ 'team' ].getCoord().x);
 
-                        if (y <= coordY && coordY <= y+imageHeight)
+                        if (y <= coordY && coordY <= y + imageHeight)
                             node.render();
 
                     });
@@ -424,9 +429,9 @@ const parallel = new function() {
 
         this.render = function() {
             filterSection = g.append('rect').attrs({
-                x: x - 20,
+                x: x - 10,
                 y: 0,
-                width: 40,
+                width: 20,
                 height: height,
                 opacity: '0',
             });
@@ -494,23 +499,28 @@ const parallel = new function() {
     }
 
     const Node = function(data, opponent) {
-        const color = Constant.color[ data[ Constant.columneByPathColor ] ];
+
         let path;
+        const thatNode = this;
 
-        const coords = _.chain(data).map(function(v, k) {
-            for (var i = 0; i < Constant.categoryColumns.length; i++)
-                if (k === Constant.categoryColumns[ i ])
-                    return null;
+        this.getCoords = function(data) {
+            const coords = _.chain(data).map(function(v, k) {
+                for (var i = 0; i < Constant.categoryColumns.length; i++)
+                    if (k === Constant.categoryColumns[ i ])
+                        return null;
 
-            if (Constant.mappingColumns[ k ])
-                v = Constant.mappingData[ k ][ v ];
+                if (Constant.mappingColumns[ k ])
+                    v = Constant.mappingData[ k ][ v ];
 
-            return axies[ k ].getCoord(v);
-        }).value();
+                return axies[ k ].getCoord(v);
+            }).value();
 
-        _.remove(coords, function(d) {
-            return d === null;
-        });
+            _.remove(coords, function(d) {
+                return d === null;
+            });
+            return coords;
+        };
+        const coords = this.getCoords(data);
 
         this.getCoordYByX = function(x) {
             return (_.find(coords, coord => x == coord.x)).y;
@@ -524,9 +534,13 @@ const parallel = new function() {
                 fill: 'none',
                 strokeWeight: 10,
             });
+            path.on('click', function() {
+                that.renew();
+            });
         }
 
         this.render = function() {
+            const color = Constant.color[ data[ Constant.columneByPathColor ] ];
             path = activeG.append('path').attrs({
                 d: line(coords),
                 stroke: color,
@@ -537,15 +551,27 @@ const parallel = new function() {
 
             path.on('mouseover', function() {
                 path.attr('stroke', '#414e5e');
-            })
-                .on('mouseout', function() {
-                    path.attr('stroke', color);
-                })
+            }).on('mouseout', function() {
+                path.attr('stroke', color);
+            });
 
             path.on('click', function() {
+                activeG.selectAll('*').remove();
+                thatNode.render();
+                thatNode.renderOpponent();
                 possesionView.addEvent(data, opponent);
             });
         };
+        this.renderOpponent = function() {
+            const color = Constant.color[ opponent[ Constant.columneByPathColor ] ];
+            activeG.append('path').attrs({
+                d: line(this.getCoords(opponent)),
+                stroke: color,
+                opacity: 0.5,
+                fill: 'none',
+                strokeWeight: 10,
+            }).attr('stroke-width', 3);
+        }
 
         return this;
     }
@@ -588,7 +614,6 @@ const parallel = new function() {
 
             const nationAxis = new NationAxis(nations);
             nodes = _.map(data, (d, i) => {
-
                 opponent = (i % 2 == 1) ? data[ i - 1 ] : data[ i + 1 ];
                 return new Node(d, opponent);
             });
