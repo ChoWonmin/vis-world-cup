@@ -2,48 +2,52 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e850c8c0-27c5-4bc2-bfd3-e70efa79cfdc" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/image/fabicon.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/2014/data/worldCub.csv" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
       <change beforePath="$PROJECT_DIR$/public/stylesheets/main.css" afterPath="$PROJECT_DIR$/public/stylesheets/main.css" />
       <change beforePath="$PROJECT_DIR$/public/stylesheets/main.css.map" afterPath="$PROJECT_DIR$/public/stylesheets/main.css.map" />
       <change beforePath="$PROJECT_DIR$/public/stylesheets/main.sass" afterPath="$PROJECT_DIR$/public/stylesheets/main.sass" />
       <change beforePath="$PROJECT_DIR$/public/stylesheets/style.css" afterPath="$PROJECT_DIR$/public/stylesheets/style.css" />
       <change beforePath="$PROJECT_DIR$/public/stylesheets/style.css.map" afterPath="$PROJECT_DIR$/public/stylesheets/style.css.map" />
       <change beforePath="$PROJECT_DIR$/public/stylesheets/style.sass" afterPath="$PROJECT_DIR$/public/stylesheets/style.sass" />
-      <change beforePath="$PROJECT_DIR$/src/image/alg.png" afterPath="$PROJECT_DIR$/src/image/nation-flag/alg.png" />
-      <change beforePath="$PROJECT_DIR$/src/image/arg.png" afterPath="$PROJECT_DIR$/src/image/nation-flag/arg.png" />
-      <change beforePath="$PROJECT_DIR$/src/image/aus.png" afterPath="$PROJECT_DIR$/src/image/nation-flag/aus.png" />
-      <change beforePath="$PROJECT_DIR$/src/image/bra.png" afterPath="$PROJECT_DIR$/src/image/nation-flag/bra.png" />
-      <change beforePath="$PROJECT_DIR$/src/image/chi.png" afterPath="$PROJECT_DIR$/src/image/nation-flag/chi.png" />
-      <change beforePath="$PROJECT_DIR$/src/image/civ.png" afterPath="$PROJECT_DIR$/src/image/nation-flag/civ.png" />
-      <change beforePath="$PROJECT_DIR$/src/image/cmr.png" afterPath="$PROJECT_DIR$/src/image/nation-flag/cmr.png" />
-      <change beforePath="$PROJECT_DIR$/src/image/den.png" afterPath="$PROJECT_DIR$/src/image/nation-flag/den.png" />
-      <change beforePath="$PROJECT_DIR$/src/image/eng.png" afterPath="$PROJECT_DIR$/src/image/nation-flag/eng.png" />
-      <change beforePath="$PROJECT_DIR$/src/image/esp.png" afterPath="$PROJECT_DIR$/src/image/nation-flag/esp.png" />
-      <change beforePath="$PROJECT_DIR$/src/image/fra.png" afterPath="$PROJECT_DIR$/src/image/nation-flag/fra.png" />
-      <change beforePath="$PROJECT_DIR$/src/image/ger.png" afterPath="$PROJECT_DIR$/src/image/nation-flag/ger.png" />
-      <change beforePath="$PROJECT_DIR$/src/image/gha.png" afterPath="$PROJECT_DIR$/src/image/nation-flag/gha.png" />
-      <change beforePath="$PROJECT_DIR$/src/image/gre.png" afterPath="$PROJECT_DIR$/src/image/nation-flag/gre.png" />
-      <change beforePath="$PROJECT_DIR$/src/image/hon.png" afterPath="$PROJECT_DIR$/src/image/nation-flag/hon.png" />
-      <change beforePath="$PROJECT_DIR$/src/image/ita.png" afterPath="$PROJECT_DIR$/src/image/nation-flag/ita.png" />
-      <change beforePath="$PROJECT_DIR$/src/image/jpn.png" afterPath="$PROJECT_DIR$/src/image/nation-flag/jpn.png" />
-      <change beforePath="$PROJECT_DIR$/src/image/kor.png" afterPath="$PROJECT_DIR$/src/image/nation-flag/kor.png" />
-      <change beforePath="$PROJECT_DIR$/src/image/mex.png" afterPath="$PROJECT_DIR$/src/image/nation-flag/mex.png" />
-      <change beforePath="$PROJECT_DIR$/src/image/ned.png" afterPath="$PROJECT_DIR$/src/image/nation-flag/ned.png" />
-      <change beforePath="$PROJECT_DIR$/src/image/nga.png" afterPath="$PROJECT_DIR$/src/image/nation-flag/nga.png" />
-      <change beforePath="$PROJECT_DIR$/src/image/nzl.png" afterPath="$PROJECT_DIR$/src/image/nation-flag/nzl.png" />
-      <change beforePath="$PROJECT_DIR$/src/image/par.png" afterPath="$PROJECT_DIR$/src/image/nation-flag/par.png" />
-      <change beforePath="$PROJECT_DIR$/src/image/por.png" afterPath="$PROJECT_DIR$/src/image/nation-flag/por.png" />
-      <change beforePath="$PROJECT_DIR$/src/image/prk.png" afterPath="$PROJECT_DIR$/src/image/nation-flag/prk.png" />
-      <change beforePath="$PROJECT_DIR$/src/image/rsa.png" afterPath="$PROJECT_DIR$/src/image/nation-flag/rsa.png" />
-      <change beforePath="$PROJECT_DIR$/src/image/srb.png" afterPath="$PROJECT_DIR$/src/image/nation-flag/srb.png" />
-      <change beforePath="$PROJECT_DIR$/src/image/sui.png" afterPath="$PROJECT_DIR$/src/image/nation-flag/sui.png" />
-      <change beforePath="$PROJECT_DIR$/src/image/svk.png" afterPath="$PROJECT_DIR$/src/image/nation-flag/svk.png" />
-      <change beforePath="$PROJECT_DIR$/src/image/svn.png" afterPath="$PROJECT_DIR$/src/image/nation-flag/svn.png" />
-      <change beforePath="$PROJECT_DIR$/src/image/uru.png" afterPath="$PROJECT_DIR$/src/image/nation-flag/uru.png" />
-      <change beforePath="$PROJECT_DIR$/src/image/usa.png" afterPath="$PROJECT_DIR$/src/image/nation-flag/usa.png" />
+      <change beforePath="$PROJECT_DIR$/src/2010/data/worldCub.csv" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/image/nation-flag/alg.png" afterPath="$PROJECT_DIR$/src/2010/image/nation-flag/alg.png" />
+      <change beforePath="$PROJECT_DIR$/src/image/nation-flag/arg.png" afterPath="$PROJECT_DIR$/src/2010/image/nation-flag/arg.png" />
+      <change beforePath="$PROJECT_DIR$/src/image/nation-flag/aus.png" afterPath="$PROJECT_DIR$/src/2010/image/nation-flag/aus.png" />
+      <change beforePath="$PROJECT_DIR$/src/image/nation-flag/bra.png" afterPath="$PROJECT_DIR$/src/2010/image/nation-flag/bra.png" />
+      <change beforePath="$PROJECT_DIR$/src/image/nation-flag/chi.png" afterPath="$PROJECT_DIR$/src/2010/image/nation-flag/chi.png" />
+      <change beforePath="$PROJECT_DIR$/src/image/nation-flag/civ.png" afterPath="$PROJECT_DIR$/src/2010/image/nation-flag/civ.png" />
+      <change beforePath="$PROJECT_DIR$/src/image/nation-flag/cmr.png" afterPath="$PROJECT_DIR$/src/2010/image/nation-flag/cmr.png" />
+      <change beforePath="$PROJECT_DIR$/src/image/nation-flag/den.png" afterPath="$PROJECT_DIR$/src/2010/image/nation-flag/den.png" />
+      <change beforePath="$PROJECT_DIR$/src/image/nation-flag/eng.png" afterPath="$PROJECT_DIR$/src/2010/image/nation-flag/eng.png" />
+      <change beforePath="$PROJECT_DIR$/src/image/nation-flag/esp.png" afterPath="$PROJECT_DIR$/src/2010/image/nation-flag/esp.png" />
+      <change beforePath="$PROJECT_DIR$/src/image/nation-flag/fra.png" afterPath="$PROJECT_DIR$/src/2010/image/nation-flag/fra.png" />
+      <change beforePath="$PROJECT_DIR$/src/image/nation-flag/ger.png" afterPath="$PROJECT_DIR$/src/2010/image/nation-flag/ger.png" />
+      <change beforePath="$PROJECT_DIR$/src/image/nation-flag/gha.png" afterPath="$PROJECT_DIR$/src/2010/image/nation-flag/gha.png" />
+      <change beforePath="$PROJECT_DIR$/src/image/nation-flag/gre.png" afterPath="$PROJECT_DIR$/src/2010/image/nation-flag/gre.png" />
+      <change beforePath="$PROJECT_DIR$/src/image/nation-flag/hon.png" afterPath="$PROJECT_DIR$/src/2010/image/nation-flag/hon.png" />
+      <change beforePath="$PROJECT_DIR$/src/image/nation-flag/ita.png" afterPath="$PROJECT_DIR$/src/2010/image/nation-flag/ita.png" />
+      <change beforePath="$PROJECT_DIR$/src/image/nation-flag/jpn.png" afterPath="$PROJECT_DIR$/src/2010/image/nation-flag/jpn.png" />
+      <change beforePath="$PROJECT_DIR$/src/image/nation-flag/kor.png" afterPath="$PROJECT_DIR$/src/2010/image/nation-flag/kor.png" />
+      <change beforePath="$PROJECT_DIR$/src/image/nation-flag/mex.png" afterPath="$PROJECT_DIR$/src/2010/image/nation-flag/mex.png" />
+      <change beforePath="$PROJECT_DIR$/src/image/nation-flag/ned.png" afterPath="$PROJECT_DIR$/src/2010/image/nation-flag/ned.png" />
+      <change beforePath="$PROJECT_DIR$/src/image/nation-flag/nga.png" afterPath="$PROJECT_DIR$/src/2010/image/nation-flag/nga.png" />
+      <change beforePath="$PROJECT_DIR$/src/image/nation-flag/nzl.png" afterPath="$PROJECT_DIR$/src/2010/image/nation-flag/nzl.png" />
+      <change beforePath="$PROJECT_DIR$/src/image/nation-flag/par.png" afterPath="$PROJECT_DIR$/src/2010/image/nation-flag/par.png" />
+      <change beforePath="$PROJECT_DIR$/src/image/nation-flag/por.png" afterPath="$PROJECT_DIR$/src/2010/image/nation-flag/por.png" />
+      <change beforePath="$PROJECT_DIR$/src/image/nation-flag/prk.png" afterPath="$PROJECT_DIR$/src/2010/image/nation-flag/prk.png" />
+      <change beforePath="$PROJECT_DIR$/src/image/nation-flag/rsa.png" afterPath="$PROJECT_DIR$/src/2010/image/nation-flag/rsa.png" />
+      <change beforePath="$PROJECT_DIR$/src/image/nation-flag/srb.png" afterPath="$PROJECT_DIR$/src/2010/image/nation-flag/srb.png" />
+      <change beforePath="$PROJECT_DIR$/src/image/nation-flag/sui.png" afterPath="$PROJECT_DIR$/src/2010/image/nation-flag/sui.png" />
+      <change beforePath="$PROJECT_DIR$/src/image/nation-flag/svk.png" afterPath="$PROJECT_DIR$/src/2010/image/nation-flag/svk.png" />
+      <change beforePath="$PROJECT_DIR$/src/image/nation-flag/svn.png" afterPath="$PROJECT_DIR$/src/2010/image/nation-flag/svn.png" />
+      <change beforePath="$PROJECT_DIR$/src/image/nation-flag/uru.png" afterPath="$PROJECT_DIR$/src/2010/image/nation-flag/uru.png" />
+      <change beforePath="$PROJECT_DIR$/src/image/nation-flag/usa.png" afterPath="$PROJECT_DIR$/src/2010/image/nation-flag/usa.png" />
       <change beforePath="$PROJECT_DIR$/src/main.js" afterPath="$PROJECT_DIR$/src/main.js" />
       <change beforePath="$PROJECT_DIR$/views/index.jade" afterPath="$PROJECT_DIR$/views/index.jade" />
+      <change beforePath="$PROJECT_DIR$/views/layout.jade" afterPath="$PROJECT_DIR$/views/layout.jade" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -60,11 +64,9 @@
       <file leaf-file-name="index.jade" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/index.jade">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="14" column="19" lean-forward="false" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
-              <folding>
-                <marker date="1529389629058" expanded="true" signature="589:625" ph="..." />
-              </folding>
+            <state relative-caret-position="-12">
+              <caret line="15" column="25" lean-forward="false" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -72,11 +74,19 @@
       <file leaf-file-name="main.sass" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/stylesheets/main.sass">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="11" column="47" lean-forward="false" selection-start-line="11" selection-start-column="47" selection-end-line="11" selection-end-column="47" />
-              <folding>
-                <marker date="1529390227175" expanded="true" signature="508:543" ph="..." />
-              </folding>
+            <state relative-caret-position="1385">
+              <caret line="99" column="26" lean-forward="false" selection-start-line="99" selection-start-column="26" selection-end-line="99" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.sass" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/stylesheets/style.sass">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="110">
+              <caret line="5" column="4" lean-forward="false" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -84,27 +94,37 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="307">
-              <caret line="560" column="42" lean-forward="false" selection-start-line="560" selection-start-column="42" selection-end-line="560" selection-end-column="42" />
+            <state relative-caret-position="130">
+              <caret line="646" column="28" lean-forward="false" selection-start-line="646" selection-start-column="28" selection-end-line="646" selection-end-column="28" />
               <folding>
-                <element signature="e#539#1569#0" expanded="false" />
-                <element signature="e#1587#1666#0" expanded="false" />
-                <element signature="e#1795#5127#0" expanded="false" />
-                <element signature="e#1811#2708#0" expanded="false" />
-                <element signature="e#2728#3624#0" expanded="false" />
-                <element signature="e#3645#3975#0" expanded="false" />
-                <element signature="e#3992#5121#0" expanded="false" />
-                <element signature="e#5917#6802#0" expanded="false" />
-                <element signature="e#9935#10620#0" expanded="false" />
-                <element signature="e#10663#12033#0" expanded="false" />
-                <element signature="e#13047#13477#0" expanded="false" />
-                <element signature="e#14791#15337#0" expanded="false" />
-                <element signature="e#14853#15195#0" expanded="false" />
-                <element signature="e#15248#15298#0" expanded="false" />
-                <element signature="e#15425#15498#0" expanded="false" />
-                <element signature="e#15547#15897#0" expanded="false" />
-                <element signature="e#17167#19294#0" expanded="false" />
-                <element signature="e#17557#18498#0" expanded="false" />
+                <element signature="e#598#1628#0" expanded="false" />
+                <element signature="e#1646#1836#0" expanded="false" />
+                <element signature="e#1859#1940#0" expanded="false" />
+                <element signature="e#1965#6481#0" expanded="false" />
+                <element signature="e#1975#2892#0" expanded="false" />
+                <element signature="e#2907#3803#0" expanded="false" />
+                <element signature="e#3823#4719#0" expanded="false" />
+                <element signature="e#4740#5050#0" expanded="false" />
+                <element signature="e#5067#6474#0" expanded="false" />
+                <element signature="e#6542#6585#0" expanded="false" />
+                <element signature="e#6627#9111#0" expanded="false" />
+                <element signature="e#7075#7161#0" expanded="false" />
+                <element signature="e#7209#7368#0" expanded="false" />
+                <element signature="e#7403#9107#0" expanded="false" />
+                <element signature="e#9143#10970#0" expanded="false" />
+                <element signature="e#11640#11675#0" expanded="false" />
+                <element signature="e#11700#11735#0" expanded="false" />
+                <element signature="e#11942#12483#0" expanded="false" />
+                <element signature="e#12514#12837#0" expanded="false" />
+                <element signature="e#13740#15021#0" expanded="false" />
+                <element signature="e#13895#14007#0" expanded="false" />
+                <element signature="e#15069#17642#0" expanded="false" />
+                <element signature="e#16035#16465#0" expanded="false" />
+                <element signature="e#17846#18392#0" expanded="false" />
+                <element signature="e#18303#18353#0" expanded="false" />
+                <element signature="e#18480#18553#0" expanded="false" />
+                <element signature="e#20560#20690#0" expanded="false" />
+                <element signature="e#20739#21631#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -132,6 +152,7 @@
       <find>opponentN</find>
       <find>console</find>
       <find>getCoordYByX</find>
+      <find>actionInit</find>
       <find>head</find>
     </findStrings>
     <replaceStrings>
@@ -150,8 +171,8 @@
         <option value="$PROJECT_DIR$/views/layout.jade" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/public/stylesheets/style.sass" />
-        <option value="$PROJECT_DIR$/views/index.jade" />
         <option value="$PROJECT_DIR$/public/stylesheets/main.sass" />
+        <option value="$PROJECT_DIR$/views/index.jade" />
         <option value="$PROJECT_DIR$/src/main.js" />
       </list>
     </option>
@@ -248,7 +269,9 @@
       </profile-state>
     </entry>
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
@@ -275,29 +298,12 @@
             <path>
               <item name="vis-world-cup" type="b2602c69:ProjectViewProjectNode" />
               <item name="vis-world-cup" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="vis-world-cup" type="b2602c69:ProjectViewProjectNode" />
-              <item name="vis-world-cup" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="stylesheets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="vis-world-cup" type="b2602c69:ProjectViewProjectNode" />
-              <item name="vis-world-cup" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="vis-world-cup" type="b2602c69:ProjectViewProjectNode" />
               <item name="vis-world-cup" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="vis-world-cup" type="b2602c69:ProjectViewProjectNode" />
-              <item name="vis-world-cup" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="image" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="vis-world-cup" type="b2602c69:ProjectViewProjectNode" />
@@ -320,12 +326,16 @@
     <property name="HbShouldOpenHtmlAsHb" value="" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/image/nation-flag" />
-      <recent name="$PROJECT_DIR$/src/image" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/2014" />
       <recent name="$PROJECT_DIR$/src/data" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/2014" />
+      <recent name="$PROJECT_DIR$/src/image" />
+      <recent name="$PROJECT_DIR$/src/2010/image" />
+      <recent name="$PROJECT_DIR$/src/2010" />
+      <recent name="$PROJECT_DIR$/src/image/nation-flag" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -377,26 +387,31 @@
       <workItem from="1529242963478" duration="5603000" />
       <workItem from="1529259737176" duration="397000" />
       <workItem from="1529265333446" duration="1874000" />
-      <workItem from="1529387495920" duration="5215000" />
+      <workItem from="1529387495920" duration="8133000" />
+      <workItem from="1529433250468" duration="1599000" />
+      <workItem from="1529494821420" duration="7581000" />
+      <workItem from="1529560382924" duration="3693000" />
+      <workItem from="1529652841899" duration="13642000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48542000" />
+    <option name="totallyTimeSpent" value="77975000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15715292" sideWeight="0.66062605" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15715292" sideWeight="0.6375618" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26602176" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15715292" sideWeight="0.33937398" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15715292" sideWeight="0.36243823" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26602176" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24960506" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27932286" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36275697" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -438,28 +453,16 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="3" />
+      <option name="time" value="17" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/views/index.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1529389629058" expanded="true" signature="589:625" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/stylesheets/main.sass">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="462">
           <caret line="21" column="27" lean-forward="false" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
-          <folding>
-            <marker date="1529390227175" expanded="true" signature="508:543" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -502,7 +505,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/data/worldCub2010.csv">
+    <entry file="file://$PROJECT_DIR$/src/2010/data/worldCub.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -518,7 +521,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/worldcup2010.csv" />
-    <entry file="file://$PROJECT_DIR$/src/data/worldCub2010.csv">
+    <entry file="file://$PROJECT_DIR$/src/2010/data/worldCub.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="40">
           <caret line="4" column="38" lean-forward="false" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
@@ -543,7 +546,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22">
           <caret line="21" column="24" lean-forward="false" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -558,15 +560,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="131">
           <caret line="8" column="23" lean-forward="true" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/style.sass">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" column="11" lean-forward="false" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -575,189 +568,204 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/image/nation-flag/alg.png">
+    <entry file="file://$PROJECT_DIR$/src/2010/image/nation-flag/alg.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/image/nation-flag/arg.png">
+    <entry file="file://$PROJECT_DIR$/src/2010/image/nation-flag/arg.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/image/nation-flag/aus.png">
+    <entry file="file://$PROJECT_DIR$/src/2010/image/nation-flag/aus.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/image/nation-flag/bra.png">
+    <entry file="file://$PROJECT_DIR$/src/2010/image/nation-flag/bra.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/image/nation-flag/chi.png">
+    <entry file="file://$PROJECT_DIR$/src/2010/image/nation-flag/chi.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/image/nation-flag/civ.png">
+    <entry file="file://$PROJECT_DIR$/src/2010/image/nation-flag/civ.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/image/nation-flag/cmr.png">
+    <entry file="file://$PROJECT_DIR$/src/2010/image/nation-flag/cmr.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/image/nation-flag/den.png">
+    <entry file="file://$PROJECT_DIR$/src/2010/image/nation-flag/den.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/image/nation-flag/eng.png">
+    <entry file="file://$PROJECT_DIR$/src/2010/image/nation-flag/eng.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/image/nation-flag/esp.png">
+    <entry file="file://$PROJECT_DIR$/src/2010/image/nation-flag/esp.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/image/nation-flag/fra.png">
+    <entry file="file://$PROJECT_DIR$/src/2010/image/nation-flag/fra.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/image/nation-flag/ger.png">
+    <entry file="file://$PROJECT_DIR$/src/2010/image/nation-flag/ger.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/image/nation-flag/gha.png">
+    <entry file="file://$PROJECT_DIR$/src/2010/image/nation-flag/gha.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/image/nation-flag/gre.png">
+    <entry file="file://$PROJECT_DIR$/src/2010/image/nation-flag/gre.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/image/nation-flag/hon.png">
+    <entry file="file://$PROJECT_DIR$/src/2010/image/nation-flag/hon.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/image/nation-flag/ita.png">
+    <entry file="file://$PROJECT_DIR$/src/2010/image/nation-flag/ita.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/image/nation-flag/jpn.png">
+    <entry file="file://$PROJECT_DIR$/src/2010/image/nation-flag/jpn.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/image/nation-flag/kor.png">
+    <entry file="file://$PROJECT_DIR$/src/2010/image/nation-flag/kor.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/image/nation-flag/usa.png">
+    <entry file="file://$PROJECT_DIR$/src/2010/image/nation-flag/usa.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/image/nation-flag/uru.png">
+    <entry file="file://$PROJECT_DIR$/src/2010/image/nation-flag/uru.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/image/nation-flag/svn.png">
+    <entry file="file://$PROJECT_DIR$/src/2010/image/nation-flag/svn.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/image/nation-flag/svk.png">
+    <entry file="file://$PROJECT_DIR$/src/2010/image/nation-flag/svk.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/image/nation-flag/sui.png">
+    <entry file="file://$PROJECT_DIR$/src/2010/image/nation-flag/sui.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/image/nation-flag/srb.png">
+    <entry file="file://$PROJECT_DIR$/src/2010/image/nation-flag/srb.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/image/nation-flag/rsa.png">
+    <entry file="file://$PROJECT_DIR$/src/2010/image/nation-flag/rsa.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/image/nation-flag/prk.png">
+    <entry file="file://$PROJECT_DIR$/src/2010/image/nation-flag/prk.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/image/nation-flag/ned.png">
+    <entry file="file://$PROJECT_DIR$/src/2010/image/nation-flag/ned.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/image/nation-flag/mex.png">
+    <entry file="file://$PROJECT_DIR$/src/2010/image/nation-flag/mex.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/2014/data/worldCub2010.csv" />
     <entry file="file://$PROJECT_DIR$/views/index.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="14" column="19" lean-forward="false" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
-          <folding>
-            <marker date="1529389629058" expanded="true" signature="589:625" ph="..." />
-          </folding>
+        <state relative-caret-position="-12">
+          <caret line="15" column="25" lean-forward="false" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/style.sass">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="4" lean-forward="false" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/stylesheets/main.sass">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="11" column="47" lean-forward="false" selection-start-line="11" selection-start-column="47" selection-end-line="11" selection-end-column="47" />
-          <folding>
-            <marker date="1529390227175" expanded="true" signature="508:543" ph="..." />
-          </folding>
+        <state relative-caret-position="1385">
+          <caret line="99" column="26" lean-forward="false" selection-start-line="99" selection-start-column="26" selection-end-line="99" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="560" column="42" lean-forward="false" selection-start-line="560" selection-start-column="42" selection-end-line="560" selection-end-column="42" />
+        <state relative-caret-position="130">
+          <caret line="646" column="28" lean-forward="false" selection-start-line="646" selection-start-column="28" selection-end-line="646" selection-end-column="28" />
           <folding>
-            <element signature="e#539#1569#0" expanded="false" />
-            <element signature="e#1587#1666#0" expanded="false" />
-            <element signature="e#1795#5127#0" expanded="false" />
-            <element signature="e#1811#2708#0" expanded="false" />
-            <element signature="e#2728#3624#0" expanded="false" />
-            <element signature="e#3645#3975#0" expanded="false" />
-            <element signature="e#3992#5121#0" expanded="false" />
-            <element signature="e#5917#6802#0" expanded="false" />
-            <element signature="e#9935#10620#0" expanded="false" />
-            <element signature="e#10663#12033#0" expanded="false" />
-            <element signature="e#13047#13477#0" expanded="false" />
-            <element signature="e#14791#15337#0" expanded="false" />
-            <element signature="e#14853#15195#0" expanded="false" />
-            <element signature="e#15248#15298#0" expanded="false" />
-            <element signature="e#15425#15498#0" expanded="false" />
-            <element signature="e#15547#15897#0" expanded="false" />
-            <element signature="e#17167#19294#0" expanded="false" />
-            <element signature="e#17557#18498#0" expanded="false" />
+            <element signature="e#598#1628#0" expanded="false" />
+            <element signature="e#1646#1836#0" expanded="false" />
+            <element signature="e#1859#1940#0" expanded="false" />
+            <element signature="e#1965#6481#0" expanded="false" />
+            <element signature="e#1975#2892#0" expanded="false" />
+            <element signature="e#2907#3803#0" expanded="false" />
+            <element signature="e#3823#4719#0" expanded="false" />
+            <element signature="e#4740#5050#0" expanded="false" />
+            <element signature="e#5067#6474#0" expanded="false" />
+            <element signature="e#6542#6585#0" expanded="false" />
+            <element signature="e#6627#9111#0" expanded="false" />
+            <element signature="e#7075#7161#0" expanded="false" />
+            <element signature="e#7209#7368#0" expanded="false" />
+            <element signature="e#7403#9107#0" expanded="false" />
+            <element signature="e#9143#10970#0" expanded="false" />
+            <element signature="e#11640#11675#0" expanded="false" />
+            <element signature="e#11700#11735#0" expanded="false" />
+            <element signature="e#11942#12483#0" expanded="false" />
+            <element signature="e#12514#12837#0" expanded="false" />
+            <element signature="e#13740#15021#0" expanded="false" />
+            <element signature="e#13895#14007#0" expanded="false" />
+            <element signature="e#15069#17642#0" expanded="false" />
+            <element signature="e#16035#16465#0" expanded="false" />
+            <element signature="e#17846#18392#0" expanded="false" />
+            <element signature="e#18303#18353#0" expanded="false" />
+            <element signature="e#18480#18553#0" expanded="false" />
+            <element signature="e#20560#20690#0" expanded="false" />
+            <element signature="e#20739#21631#0" expanded="false" />
           </folding>
         </state>
       </provider>

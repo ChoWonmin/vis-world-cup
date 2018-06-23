@@ -3,28 +3,34 @@ extends layout
 block content
   link(rel='stylesheet', href='/stylesheets/main.css')
   .container
-    .header
+    .er
       image.main-logo(src='image/fabicon.png')
-      .title HOW TO HAVE FUN WORLD CUP BY TACTICS
+      .title HOW TO ENJOY WORLD CUP WITH TACTICS
       //.reset-btn.btn
         i.fas.fa-redo
     .content
       .main-wrapper
-        .selector
-          .btn 2010
-          .btn 2014
+        .sub-er
+          .sub-title The flow of World Cup games
+          .btn.year-btn 2010
+          .btn.year-btn 2014
         svg#renderer
-      .side-wrapper.test
-        .top.test
+      .side-wrapper
+        .top
+          .sub-er
+            .sub-title All World Cup matches in selected countries
           .rader
-        .bottom.test
+        .bottom
+          .sub-er
+            .sub-title Details of the selected game
           .comparison-chart
-            .wrap
-              svg#rader.test
             .wrap
               .flex-item
                 .flex-item
                 svg#possession-view
                 .flex-item
+            .wrap
+              svg#line-up
+
 
   script(src='main.js')

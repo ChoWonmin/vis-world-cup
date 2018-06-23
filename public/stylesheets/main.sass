@@ -1,23 +1,25 @@
-$header-size: 80px
-$year-selector-height: 40px
+$er-size: 80px
+$sub-er-height: 40px
 
-$content-height: calc(100vh - #{$header-size})
+$content-height: calc(100vh - #{$er-size})
 
 $main-color: #43b264
 $btn-height: 32px
 $btn-size: 60px
 
 #renderer
-  width: 1040px
-  height: calc(100% - #{$year-selector-height})
-  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, .1)
+  width: 100%
+  height: calc(100% - #{$sub-er-height})
+
+image
+  cursor: pointer
 
 .flex-item
   display: flex
   flex: 1
 
 .btn
-  margin: 0 8px
+  margin: 4px 8px
   width: 100px
   height: $btn-height
   border-radius: 8px
@@ -34,62 +36,72 @@ $btn-size: 60px
   &:active
     background-color: darken($main-color, 5)
 
+.sub-er
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, .1)
+  height: $sub-er-height
+  display: flex
+  .sub-title
+    line-height: $sub-er-height
+    margin: 0 16px
+
 .container
   width: 100%
-  .header
+  .er
     width: 100%
-    height: $header-size
+    height: $er-size
     padding: 8px
     background: $main-color
     display: flex
     .main-logo
-      width: calc( #{$header-size} - 16px)
-      height: calc( #{$header-size} - 16px)
-      margin-left: 8px
+      width: calc( #{$er-size} - 16px)
+      height: calc( #{$er-size} - 16px)
+      margin: 0 8px
     .title
       color: white
+      letter-spacing: 1px
       font-size: 36px
-      line-height: calc( #{$header-size} - 16px)
+      line-height: calc( #{$er-size} - 16px)
       height: 100%
-
+      font-weight: 800
 
   .content
     display: flex
     width: 100%
     height: $content-height
     .main-wrapper
+      flex: 3
       .selector
-        width: 100%
-        height: $year-selector-height
+        height: $sub-er-height
         padding: 4px
         display: flex
 
-
     .side-wrapper
       flex: 1
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, .1)
       .top
         width: 100%
-        height: calc(#{$content-height} *4/7)
+        height: calc(#{$content-height} *3/7)
       .bottom
         width: 100%
-        height: calc(#{$content-height} *3/7)
+        height: calc(#{$content-height} *4/7)
 
 
 .comparison-chart
   width: 100%
-  height: 100%
+  height: calc(100% - #{$btn-height})
   .wrap
     width: 100%
     height: 50%
     display: flex
     padding: 4px
-    #rader
+    #line-up
+      max-width: 380px
       width: 100%
-      height: 100%
+      height: calc(100% - 8px)
     #possession-view
       max-width: 380px
       width: 100%
       height: 100%
 
 .test
-  border: solid 2px #ccc
+  border: solid 1px #ccc

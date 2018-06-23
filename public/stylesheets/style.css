@@ -1,8 +1,10 @@
+@import url("https://fonts.googleapis.com/css?family=Nanum+Gothic:400,800&subset=korean");
 * {
   box-sizing: border-box; }
 
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px 'Nanum Gothic', sans-serif;
+  letter-spacing: 0.5px;
   margin: 0; }
 
 /*# sourceMappingURL=style.css.map */
