@@ -1,5 +1,5 @@
 const Constant = new function() {
-        this.dicetory = 2010;
+        this.dicetory = 2014;
         this.filename = '/data/worldCup.csv';
         this.categoryColumns = [ 'year', 'group', 'match', 'score', 'shots', 'target',
             'LB', 'CB', 'RB', 'LM', 'CM', 'RM', 'LF', 'CF', 'RF', 'Left', 'Right', 'LPA_SPA',
@@ -536,7 +536,7 @@ const heatMap = new function() {
     const root = d3.select('#heat-map');
     const width = root.node().getBoundingClientRect().width;
     const height = root.node().getBoundingClientRect().height;
-    const names = [ 'Tiki-taka', 'Cross Play',  'Total Soccer', 'Catenaccio',  ];
+    const names = [ 'Tiki-taka', 'Cross Play',  'Catenaccio', 'Total Soccer', ];
 
     const g = root.append('g');
     const title = g.append('g');
@@ -550,12 +550,11 @@ const heatMap = new function() {
     title.attr('transform', 'translate(34, 80)');
 
     this.init = function() {
-
         d3.csv(Constant.dicetory + Constant.filename, data => {
             csv = data;
             this.draw(csv);
         });
-    }
+    };
 
     this.draw = function(data) {
         content.selectAll('*').remove();
