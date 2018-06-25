@@ -2,6 +2,8 @@ $er-size: 80px
 $sub-er-height: 40px
 
 $content-height: calc(100vh - #{$er-size})
+$main-bottom-height: 240px
+$sub-title-height: 32px
 
 $main-color: #43b264
 $btn-height: 32px
@@ -14,9 +16,29 @@ $btn-size: 60px
 image
   cursor: pointer
 
+.flex-wrapper
+  width: 100%
+  height: 100%
+  display: flex
 .flex-item
   display: flex
   flex: 1
+
+.cluster-wrapper
+  display: flex
+  padding: 8px
+  width: 100%
+  height: 50%
+  .cluster
+    width: 50%
+    margin: 0 4px
+    height: 100%
+    border-radius: 8px
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, .1)
+    .title
+      padding: 4px
+    .content
+
 
 .btn
   margin: 4px 8px
@@ -44,6 +66,9 @@ image
     line-height: $sub-er-height
     margin: 0 16px
 
+.main-top
+  height: calc(100% - #{$main-bottom-height})
+
 .container
   width: 100%
   .er
@@ -53,14 +78,14 @@ image
     background: $main-color
     display: flex
     .main-logo
-      width: calc( #{$er-size} - 16px)
-      height: calc( #{$er-size} - 16px)
+      width: calc(#{$er-size} - 16px)
+      height: calc(#{$er-size} - 16px)
       margin: 0 8px
     .title
       color: white
       letter-spacing: 1px
       font-size: 36px
-      line-height: calc( #{$er-size} - 16px)
+      line-height: calc(#{$er-size} - 16px)
       height: 100%
       font-weight: 800
 
@@ -74,34 +99,47 @@ image
         height: $sub-er-height
         padding: 4px
         display: flex
+      .main-bottom
+        width: 100%
+        height: $main-bottom-height
+        padding: 8px
+
+        .title
+          margin: 4px 12px
+          line-height: $sub-title-height
+        #heat-map
+          width: 100%
+          height: calc(100% - #{$sub-title-height})
 
     .side-wrapper
       flex: 1
       box-shadow: 0 0 0 1px rgba(0, 0, 0, .1)
       .top
         width: 100%
-        height: calc(#{$content-height} *3/7)
-      .bottom
-        width: 100%
-        height: calc(#{$content-height} *4/7)
+        height: calc(#{$content-height} * 4 / 7)
 
 
 .comparison-chart
   width: 100%
-  height: calc(100% - #{$btn-height})
+  height: 100%
+  margin: 24px 0px
+
   .wrap
     width: 100%
-    height: 50%
-    display: flex
     padding: 4px
-    #line-up
-      max-width: 380px
-      width: 100%
-      height: calc(100% - 8px)
-    #possession-view
-      max-width: 380px
-      width: 100%
-      height: 100%
+    &.possession
+      height: 60%
+    &.attack-direction
+      height: 40%
+    .flex-wrapper
+      #possession-view
+        max-width: 380px
+        width: 100%
+        height: calc(100% - 8px)
+      #attack-direction
+        max-width: 380px
+        width: 100%
+        height: calc(100% - 8px)
 
 .test
   border: solid 1px #ccc
