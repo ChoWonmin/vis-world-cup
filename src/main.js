@@ -826,7 +826,7 @@ const parallel = new function() {
 
                 })
                 .on('end', function() {
-                    activeG.selectAll('*').remove();
+                    activeG.selectAll('*').attr('opacity', 0);
 
                     if (_.find(filters, filter => filter.x == x)) { // x축에 대하여 중복의 드레그를한 경우
                         _.forEach(nodes, node => {
@@ -850,7 +850,7 @@ const parallel = new function() {
                     });
 
                     _.forEach(selectNodes, node => {
-                        node.render();
+                        node.getPath().attr('opacity', .3);
                     })
 
                 }));
@@ -863,6 +863,7 @@ const parallel = new function() {
         this.nation = data[ 'team' ];
         const strokeWeight = 2;
 
+        this.getPath = () => path;
         this.getCoords = function(data) {
             const coords = _.chain(data).map(function(v, k) {
                 for (var i = 0; i < Constant.categoryColumns.length; i++)
@@ -916,14 +917,13 @@ const parallel = new function() {
             });
 
             path.on('click', function() {
-                activeG.selectAll('*').remove();
-                thatNode.render();
+                activeG.selectAll('*').attr('opacity', 0);
+                path.attr('opacity', .3);
                 thatNode.renderOpponent();
                 possesionView.addEvent(data, opponent);
                 lineUp.draw(data, opponent);
             });
         };
-
 
         this.renderOpponent = function() {
             const color = Constant.color[ opponent[ Constant.columneByPathColor ] ];
