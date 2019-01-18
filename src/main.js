@@ -1,66 +1,136 @@
-const Constant = new function() {
-        this.dicetory = 2014;
-        this.filename = '/data/worldCup.csv';
-        this.categoryColumns = [ 'year', 'group', 'match', 'score', 'shots', 'target',
-            'LB', 'CB', 'RB', 'LM', 'CM', 'RM', 'LF', 'CF', 'RF', 'Left', 'Right', 'LPA_SPA',
-            'coner.kicks', 'MPC', 'MPA', 'LPC', 'SPC', 'TPC', 'TPA', 'LPA', 'SPA', 'result', 'round',
-            'LPP_SPP', 'LPC_SPC', 'LPC_LPA', 'Opponent', 'side', 'cluster', 'fouls', 'formation', 'LPP', 'SPP', 'side_attack' ];
-        this.mappingColumns = { team: true, formation: true, Opponent: true };
-        this.columneByPathColor = 'cluster';
+const Constant = {
+    dicetory: 2014,
+    filename: '/data/worldCup.csv',
+    categoryColumns: [ 'year', 'group', 'match', 'score', 'shots', 'target',
+        'LB', 'CB', 'RB', 'LM', 'CM', 'RM', 'LF', 'CF', 'RF', 'Left', 'Right', 'LPA_SPA', 'SPA_LPA',
+        'coner.kicks', 'MPC', 'MPA', 'LPC', 'SPC', 'TPC', 'TPA', 'LPA', 'SPA', 'result', 'round',
+        'LPP_SPP', 'LPC_SPC', 'LPC_LPA', 'Opponent', 'side', 'cluster', 'fouls', 'formation', 'LPP', 'SPP', 'side_attack' ],
+    mappingColumns: { team: true, formation: true, Opponent: true },
+    columneByPathColor: 'cluster',
 
-        /*
-        this.color = {
-            'South Korea': '#ec6c60',
-            'Japan': '#ec6c60',
-            'North Korea': '#ec6c60',
+    /*
+    color: {
+        'South Korea': '#ec6c60',
+        'Japan': '#ec6c60',
+        'North Korea': '#ec6c60',
 
-            'Australia': '#ecaa41',
-            'New Zealand': '#ecaa41',
+        'Australia': '#ecaa41',
+        'New Zealand': '#ecaa41',
 
-            'France': '#a4d086',
-            'Greece': '#a4d086',
-            'England': '#a4d086',
-            'Slovenia': '#a4d086',
-            'Serbia': '#a4d086',
-            'Germany': '#a4d086',
-            'Netherlands': '#a4d086',
-            'Denmark': '#a4d086',
-            'Cameroon': '#a4d086',
-            'Italy': '#a4d086',
-            'Slovakia': '#a4d086',
-            'Portugal': '#a4d086',
-            'Spain': '#a4d086',
-            'Switzerland': '#a4d086',
+        'France': '#a4d086',
+        'Greece': '#a4d086',
+        'England': '#a4d086',
+        'Slovenia': '#a4d086',
+        'Serbia': '#a4d086',
+        'Germany': '#a4d086',
+        'Netherlands': '#a4d086',
+        'Denmark': '#a4d086',
+        'Cameroon': '#a4d086',
+        'Italy': '#a4d086',
+        'Slovakia': '#a4d086',
+        'Portugal': '#a4d086',
+        'Spain': '#a4d086',
+        'Switzerland': '#a4d086',
 
-            'South Africa': '#a6d9e1',
-            'Nigeria': '#a6d9e1',
-            'Algeria': '#a6d9e1',
-            'Ghana': '#a6d9e1',
-            'Ivory Coast': '#a6d9e1',
+        'South Africa': '#a6d9e1',
+        'Nigeria': '#a6d9e1',
+        'Algeria': '#a6d9e1',
+        'Ghana': '#a6d9e1',
+        'Ivory Coast': '#a6d9e1',
 
-            'United States': '#f7bc83',
-            'Mexico': '#f7bc83',
-            'Honduras': '#f7bc83',
+        'United States': '#f7bc83',
+        'Mexico': '#f7bc83',
+        'Honduras': '#f7bc83',
 
-            'Argentina': '#5d68af',
-            'Paraguay': '#5d68af',
-            'Brazil': '#5d68af',
-            'Chile': '#5d68af',
-            'Uruguay': '#5d68af',
-        };
+        'Argentina': '#5d68af',
+        'Paraguay': '#5d68af',
+        'Brazil': '#5d68af',
+        'Chile': '#5d68af',
+        'Uruguay': '#5d68af',
+    };
+    */
+    color: {
+        1: '#F44336',
+        2: '#4CAF50',
+        3: '#4797d3',
+        4: '#ecaa41',
+    },
+
+    position: [
+        [ 'LB', 'LM', 'LF' ], [ 'CB', 'CM', 'CF' ], [ 'RB', 'RM', 'RF' ],
+    ],
+    mappingData: {
+        /* team: {
+            'South Africa': 32,
+            'Mexico': 31,
+            'Uruguay': 30,
+            'France': 29,
+            'South Korea': 28,
+            'Greece': 27,
+            'Argentina': 26,
+            'Nigeria': 25,
+            'England': 24,
+            'United States': 23,
+            'Algeria': 22,
+            'Slovenia': 21,
+            'Serbia': 20,
+            'Ghana': 19,
+            'Germany': 18,
+            'Australia': 17,
+            'Netherlands': 16,
+            'Denmark': 15,
+            'Japan': 14,
+            'Cameroon': 13,
+            'Italy': 12,
+            'Paraguay': 11,
+            'New Zealand': 10,
+            'Slovakia': 9,
+            'Ivory Coast': 8,
+            'Portugal': 7,
+            'Brazil': 6,
+            'North Korea': 5,
+            'Honduras': 4,
+            'Chile': 3,
+            'Spain': 2,
+            'Switzerland': 1,
+        },
         */
-        this.color = {
-            1: '#F44336',
-            2: '#4CAF50',
-            3: '#4797d3',
-            4: '#ecaa41',
-        };
-
-        this.position = [
-            [ 'LB', 'LM', 'LF' ], [ 'CB', 'CM', 'CF' ], [ 'RB', 'RM', 'RF' ],
-        ];
-        this.mappingData = {
-            /* team: {
+        2010: {
+            team: {
+                'Spain': 32,
+                'Netherlands': 31,
+                'Germany': 30,
+                'Uruguay': 29,
+                'Brazil': 28,
+                'Argentina': 27,
+                'Paraguay': 26,
+                'Ghana': 25,
+                'Portugal': 24,
+                'Slovakia': 23,
+                'England': 22,
+                'Mexico': 21,
+                'Chile': 20,
+                'Japan': 19,
+                'South Korea': 18,
+                'United States': 17,
+                'South Africa': 16,
+                'Greece': 15,
+                'Slovenia': 14,
+                'Australia': 13,
+                'Denmark': 12,
+                'New Zealand': 11,
+                'Ivory Coast': 10,
+                'Switzerland': 9,
+                'France': 8,
+                'Nigeria': 7,
+                'Algeria': 6,
+                'Serbia': 5,
+                'Cameroon': 4,
+                'Italy': 3,
+                'North Korea': 2,
+                'Honduras': 1,
+            },
+            Opponent: {
                 'South Africa': 32,
                 'Mexico': 31,
                 'Uruguay': 30,
@@ -94,218 +164,149 @@ const Constant = new function() {
                 'Spain': 2,
                 'Switzerland': 1,
             },
-            */
-            2010: {
-                team: {
-                    'Spain': 32,
-                    'Netherlands': 31,
-                    'Germany': 30,
-                    'Uruguay': 29,
-                    'Brazil': 28,
-                    'Argentina': 27,
-                    'Paraguay': 26,
-                    'Ghana': 25,
-                    'Portugal': 24,
-                    'Slovakia': 23,
-                    'England': 22,
-                    'Mexico': 21,
-                    'Chile': 20,
-                    'Japan': 19,
-                    'South Korea': 18,
-                    'United States': 17,
-                    'South Africa': 16,
-                    'Greece': 15,
-                    'Slovenia': 14,
-                    'Australia': 13,
-                    'Denmark': 12,
-                    'New Zealand': 11,
-                    'Ivory Coast': 10,
-                    'Switzerland': 9,
-                    'France': 8,
-                    'Nigeria': 7,
-                    'Algeria': 6,
-                    'Serbia': 5,
-                    'Cameroon': 4,
-                    'Italy': 3,
-                    'North Korea': 2,
-                    'Honduras': 1,
-                },
-                Opponent: {
-                    'South Africa': 32,
-                    'Mexico': 31,
-                    'Uruguay': 30,
-                    'France': 29,
-                    'South Korea': 28,
-                    'Greece': 27,
-                    'Argentina': 26,
-                    'Nigeria': 25,
-                    'England': 24,
-                    'United States': 23,
-                    'Algeria': 22,
-                    'Slovenia': 21,
-                    'Serbia': 20,
-                    'Ghana': 19,
-                    'Germany': 18,
-                    'Australia': 17,
-                    'Netherlands': 16,
-                    'Denmark': 15,
-                    'Japan': 14,
-                    'Cameroon': 13,
-                    'Italy': 12,
-                    'Paraguay': 11,
-                    'New Zealand': 10,
-                    'Slovakia': 9,
-                    'Ivory Coast': 8,
-                    'Portugal': 7,
-                    'Brazil': 6,
-                    'North Korea': 5,
-                    'Honduras': 4,
-                    'Chile': 3,
-                    'Spain': 2,
-                    'Switzerland': 1,
-                },
 
+        },
+        2014: {
+            team: {
+                'Germany': 31,
+                'Argentina': 30,
+                'Netherlands': 29,
+                'Brazil': 28,
+                'France': 27,
+                'Belgium': 26,
+                'Colombia': 25,
+                'Costa Rica': 24,
+                'Chile': 23,
+                'Uruguay': 22,
+                'Mexico': 21,
+                'Switzerland': 20,
+                'Algeria': 19,
+                'United States': 18,
+                'Greece': 17,
+                'Nigeria': 16,
+                'Croatia': 15,
+                'Spain': 14,
+                'Italy': 13,
+                'Ivory Coast': 12,
+                'Ecuador': 11,
+                'Bosnia and Herzegovina': 10,
+                'Portugal': 9,
+                'Russia': 8,
+                'Cameroon': 7,
+                'Australia': 6,
+                'Japan': 5,
+                'England': 4,
+                'Honduras': 3,
+                'Iran': 2,
+                'Ghana': 1,
+                'South Korea': 0
             },
-            2014: {
-                team: {
-                    'Germany': 31,
-                    'Argentina': 30,
-                    'Netherlands': 29,
-                    'Brazil': 28,
-                    'France': 27,
-                    'Belgium': 26,
-                    'Colombia': 25,
-                    'Costa Rica': 24,
-                    'Chile': 23,
-                    'Uruguay': 22,
-                    'Mexico': 21,
-                    'Switzerland': 20,
-                    'Algeria': 19,
-                    'United States': 18,
-                    'Greece': 17,
-                    'Nigeria': 16,
-                    'Croatia': 15,
-                    'Spain': 14,
-                    'Italy': 13,
-                    'Ivory Coast': 12,
-                    'Ecuador': 11,
-                    'Bosnia and Herzegovina': 10,
-                    'Portugal': 9,
-                    'Russia': 8,
-                    'Cameroon': 7,
-                    'Australia': 6,
-                    'Japan': 5,
-                    'England': 4,
-                    'Honduras': 3,
-                    'Iran': 2,
-                    'Ghana': 1,
-                    'South Korea': 0
-                },
-                Opponent: {
-                    'Germany': 31,
-                    'Argentina': 30,
-                    'Netherlands': 29,
-                    'Brazil': 28,
-                    'France': 27,
-                    'Belgium': 26,
-                    'Colombia': 25,
-                    'Costa Rica': 24,
-                    'Chile': 23,
-                    'Uruguay': 22,
-                    'Mexico': 21,
-                    'Switzerland': 20,
-                    'Algeria': 19,
-                    'United States': 18,
-                    'Greece': 17,
-                    'Nigeria': 16,
-                    'Croatia': 15,
-                    'Spain': 14,
-                    'Italy': 13,
-                    'Ivory Coast': 12,
-                    'Ecuador': 11,
-                    'Bosnia and Herzegovina': 10,
-                    'Portugal': 9,
-                    'Russia': 8,
-                    'Cameroon': 7,
-                    'Australia': 6,
-                    'Japan': 5,
-                    'England': 4,
-                    'Honduras': 3,
-                    'Iran': 2,
-                    'Ghana': 1,
-                    'South Korea': 0
-                },
+            Opponent: {
+                'Germany': 31,
+                'Argentina': 30,
+                'Netherlands': 29,
+                'Brazil': 28,
+                'France': 27,
+                'Belgium': 26,
+                'Colombia': 25,
+                'Costa Rica': 24,
+                'Chile': 23,
+                'Uruguay': 22,
+                'Mexico': 21,
+                'Switzerland': 20,
+                'Algeria': 19,
+                'United States': 18,
+                'Greece': 17,
+                'Nigeria': 16,
+                'Croatia': 15,
+                'Spain': 14,
+                'Italy': 13,
+                'Ivory Coast': 12,
+                'Ecuador': 11,
+                'Bosnia and Herzegovina': 10,
+                'Portugal': 9,
+                'Russia': 8,
+                'Cameroon': 7,
+                'Australia': 6,
+                'Japan': 5,
+                'England': 4,
+                'Honduras': 3,
+                'Iran': 2,
+                'Ghana': 1,
+                'South Korea': 0
             },
-            formation: {
-                3421: 4,
-                5131: 4,
-                541: 4,
-                523: 4,
-                4123: 7,
-                41212: 8,
-                41221: 9,
-                4132: 10,
-                4141: 11,
-                4231: 12,
-                4312: 13,
-                4321: 14,
-                433: 15,
-                442: 16,
-            },
-            image: {
-                'South Africa': 'rsa.png',
-                'Mexico': 'mex.png',
-                'Uruguay': 'uru.png',
-                'France': 'fra.png',
-                'South Korea': 'kor.png',
-                'Greece': 'gre.png',
-                'Argentina': 'arg.png',
-                'Nigeria': 'nga.png',
-                'England': 'eng.png',
-                'United States': 'usa.png',
-                'Algeria': 'alg.png',
-                'Slovenia': 'svn.png',
-                'Serbia': 'srb.png',
-                'Ghana': 'gha.png',
-                'Germany': 'ger.png',
-                'Australia': 'aus.png',
-                'Netherlands': 'ned.png',
-                'Denmark': 'den.png',
-                'Japan': 'jpn.png',
-                'Cameroon': 'cmr.png',
-                'Italy': 'ita.png',
-                'Paraguay': 'par.png',
-                'New Zealand': 'nzl.png',
-                'Slovakia': 'svk.png',
-                'Ivory Coast': 'civ.png',
-                'Portugal': 'por.png',
-                'Brazil': 'bra.png',
-                'North Korea': 'prk.png',
-                'Honduras': 'hon.png',
-                'Chile': 'chi.png',
-                'Spain': 'esp.png',
-                'Switzerland': 'sui.png',
-                'Croatia': 'cro.png',
-                'Colombia': 'col.png',
-                'Iran': 'irn.png',
-                'Costa Rica': 'crc.png',
-                'Ecuador': 'ecu.png',
-                'Bosnia and Herzegovina': 'bih.png',
-                'Belgium': 'bel.png',
-                'Russia': 'rus.png'
-            },
+        },
+        formation: {
+            3421: 4,
+            5131: 4,
+            541: 4,
+            523: 4,
+            4123: 7,
+            41212: 8,
+            41221: 9,
+            4132: 10,
+            4141: 11,
+            4231: 12,
+            4312: 13,
+            4321: 14,
+            433: 15,
+            442: 16,
+        },
+        image: {
+            'South Africa': 'rsa.png',
+            'Mexico': 'mex.png',
+            'Uruguay': 'uru.png',
+            'France': 'fra.png',
+            'South Korea': 'kor.png',
+            'Greece': 'gre.png',
+            'Argentina': 'arg.png',
+            'Nigeria': 'nga.png',
+            'England': 'eng.png',
+            'United States': 'usa.png',
+            'Algeria': 'alg.png',
+            'Slovenia': 'svn.png',
+            'Serbia': 'srb.png',
+            'Ghana': 'gha.png',
+            'Germany': 'ger.png',
+            'Australia': 'aus.png',
+            'Netherlands': 'ned.png',
+            'Denmark': 'den.png',
+            'Japan': 'jpn.png',
+            'Cameroon': 'cmr.png',
+            'Italy': 'ita.png',
+            'Paraguay': 'par.png',
+            'New Zealand': 'nzl.png',
+            'Slovakia': 'svk.png',
+            'Ivory Coast': 'civ.png',
+            'Portugal': 'por.png',
+            'Brazil': 'bra.png',
+            'North Korea': 'prk.png',
+            'Honduras': 'hon.png',
+            'Chile': 'chi.png',
+            'Spain': 'esp.png',
+            'Switzerland': 'sui.png',
+            'Croatia': 'cro.png',
+            'Colombia': 'col.png',
+            'Iran': 'irn.png',
+            'Costa Rica': 'crc.png',
+            'Ecuador': 'ecu.png',
+            'Bosnia and Herzegovina': 'bih.png',
+            'Belgium': 'bel.png',
+            'Russia': 'rus.png'
+        },
 
-        };
-        this.pathBackgroundColor = '#E0E0E0';
+    },
+    pathBackgroundColor: '#E0E0E0',
 
-        this.match = [
-            'Match1', 'Match2', 'Match3', 'Round of 16', 'Round of 8', 'Semi_final', 'Third_place', 'Final',
-        ];
+    match: [
+      'Match1', 'Match2', 'Match3', 'Round of 16', 'Round of 8', 'Semi_final', 'Third_place', 'Final',
+    ],
 
-        this.path = {
-            flag: '/image/nation-flag/',
-        }
-    };
+    path: {
+        flag: '/image/nation-flag/'
+    }
+};
+
 const possesionView = new function() {
     const root = d3.select('#possession-view');
     const width = root.node().getBoundingClientRect().width;
@@ -656,7 +657,7 @@ const parallel = new function() {
         .y(function(d) {
             return d.y;
         })
-        .curve(d3.curveMonotoneX)
+        .curve(d3.curveMonotoneX);
 
     this.actionInit = function() {
         const yearBtn = d3.selectAll('.year-btn');
@@ -706,7 +707,7 @@ const parallel = new function() {
         filters = [];
 
         possesionView.init();
-    }
+    };
 
     const Axis = function(min, max, index, axisCount, column) {
         const diff = (max - min);
@@ -718,7 +719,7 @@ const parallel = new function() {
 
             return {
                 x,
-                y: height - ((val - min) / (diff) * height),
+                y: height - 2 - ((val - min) / (diff) * (height-4)),
             }
         };
 
@@ -738,7 +739,7 @@ const parallel = new function() {
         };
 
         return this;
-    }
+    };
 
     const NationAxis = function(nations) {
         const imageWidth = 40;
@@ -855,7 +856,7 @@ const parallel = new function() {
 
                 }));
         }
-    }
+    };
 
     const Node = function(data, opponent) {
         let path;
@@ -887,7 +888,7 @@ const parallel = new function() {
 
         this.getCoordYByX = function(x) {
             return (_.find(coords, coord => x == coord.x)).y;
-        }
+        };
 
         this.renderbackgroundLine = function() {
             path = backgroundG.append('path').attrs({
@@ -934,10 +935,10 @@ const parallel = new function() {
                 fill: 'none',
                 strokeWeight: 10,
             }).attr('stroke-width', strokeWeight);
-        }
+        };
 
         return this;
-    }
+    };
 
     this.draw = function() {
         d3.csv(Constant.dicetory + Constant.filename, data => {
