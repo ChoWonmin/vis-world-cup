@@ -314,31 +314,37 @@ const possesionView = new function() {
 
     const g = root.append('g');
     const title = g.append('g');
-    const ground = g.append('g');
+    const ground1 = g.append('g');
+    const ground2 = g.append('g');
 
-    const groundWidth = width / 2 - 2;
-    const groundHeight = height * 1 / 2;
-    const offsetX = width / 2 + 4;
+    const groundWidth = width - 2;
+    const groundHeight = height * 1 / 3;
+
+    const ground1y = height / 5 + 28;
+    const ground2y = height / 5 + 74 + groundHeight;
 
     title.attr('transform', 'translate(0,' + 4 + ')');
-    ground.attr('transform', 'translate(0,' + height * 1 / 2 + ')');
+    ground1.attr('transform', 'translate(0,' + ground1y + ')');
+    ground2.attr('transform', 'translate(0,' + ground2y + ')');
 
     this.init = function() {
         title.selectAll('*').remove();
-        ground.selectAll('*').remove();
+        ground1.selectAll('*').remove();
+        ground2.selectAll('*').remove();
     };
 
     this.addEvent = function(team, opponent) {
         title.selectAll('*').remove();
-        ground.selectAll('*').remove();
-
+        ground1.selectAll('*').remove();
+        ground2.selectAll('*').remove();
         this.draw(0, team, opponent);
-    }
+    };
+
     this.draw = function(x, data, opponent) {
         const heatMapWidth = groundWidth / 3;
         const heatMapHeight = groundHeight / 3;
 
-        var svg = title.append('svg').attrs({
+        const svg = title.append('svg').attrs({
             width: width,
             height: 48,
             border: '3px solid #ccc'
@@ -367,28 +373,55 @@ const possesionView = new function() {
             y: 44,
             fill: '#414e5e',
         }).attr('font-size', '20px').text(data[ 'score' ]);
-
-        for (var i = 0; i < 3; i++) {
-            for (var j = 0; j < 3; j++) {
+/*
+        ground.append('circle').attrs({
+            cx: groundWidth/2,
+            cy: groundHeight/2,
+            r: 40,
+            stroke: '#efefef',
+            opacity: 0
+        });
+        ground.append('rect').attrs({
+            x: groundWidth/2,
+            y: 0,
+            width: 2,
+            height: groundHeight,
+            fill: '#efefef'
+        });
+        ground.append('rect').attrs({
+            x: 0,
+            y: groundHeight/2 - 40,
+            width: 40,
+            height: 80,
+            stroke: '#efefef',
+        });
+        ground.append('rect').attrs({
+            x: groundWidth - 40,
+            y: groundHeight/2 - 40,
+            width: 40,
+            height: 80,
+            stroke: '#efefef',
+        });
+*/
+        for (let i = 0; i < 3; i++) {
+            for (let j = 0; j < 3; j++) {
                 const heatMapX = heatMapWidth * j;
                 const heatMapY = heatMapHeight * i;
 
-                ground.append('rect').attrs({
+                ground1.append('rect').attrs({
                     x: heatMapX + x,
                     y: heatMapY,
                     width: heatMapWidth,
                     height: heatMapHeight,
                     fill: 'darkgreen',
                 }).style('opacity', 0.2 + 0.03 * data[ Constant.position[ i ][ j ] ]);
-                ground.append('text').attrs({
+                ground1.append('text').attrs({
                     x: heatMapX + 20 + x,
                     y: heatMapY + 20,
                     fill: '#fafafa',
-                }).text(data[ Constant.position[ i ][ j ] ]);
-            }
-            ;
-        }
-        ;
+                }).text(`${data[ Constant.position[ i ][ j ]]}%`);
+            };
+        };
 
         svg.append('svg:image').attrs({
             'xlink:href': Constant.dicetory + Constant.path[ 'flag' ] + Constant.mappingData[ 'image' ][ opponent[ 'team' ] ],
@@ -416,31 +449,54 @@ const possesionView = new function() {
 
         for (var i = 0; i < 3; i++) {
             for (var j = 0; j < 3; j++) {
-                const heatMapX = heatMapWidth * (2 - j);
+                const heatMapX = heatMapWidth * j;
                 const heatMapY = heatMapHeight * i;
 
-                ground.append('rect').attrs({
-                    x: heatMapX + offsetX,
+                ground2.append('rect').attrs({
+                    x: heatMapX + x,
                     y: heatMapY,
                     width: heatMapWidth,
                     height: heatMapHeight,
                     fill: 'darkgreen',
-                }).style('opacity', 0.2 + 0.03 * opponent[ Constant.position[ i ][ j ] ]);
-                ground.append('text').attrs({
-                    x: heatMapX + 20 + offsetX,
+                }).style('opacity', 0.2 + 0.03 * opponent[Constant.position[i][j]]);
+                ground2.append('text').attrs({
+                    x: heatMapX + 20 + x,
                     y: heatMapY + 20,
                     fill: '#fafafa',
-                }).text(opponent[ Constant.position[ i ][ j ] ]);
+                }).text(`${opponent[Constant.position[i][j]]}%`);
             }
             ;
-        }
-        ;
+        };
 
         title.append('text').attrs({
             x: 8,
-            y: height * 1 / 2 - 28,
+            y: ground1y - 48,
             fill: '#414e5e',
         }).text('Ball Possession');
+
+        title.append('text').attrs({
+            x: width - 160,
+            y: ground1y - 16,
+            fill: '#414e5e',
+        }).text('Attack Direction =>').style('font-weight','bold').style('font-size', '10px');
+
+        title.append('text').attrs({
+            x: width - 160,
+            y: ground2y - 16,
+            fill: '#414e5e',
+        }).text('Attack Direction =>').style('font-weight','bold').style('font-size', '10px');
+
+        title.append('text').attrs({
+            x: 8,
+            y: ground1y - 20,
+            fill: '#414e5e',
+        }).text(`- ${data['team']}`);
+
+        title.append('text').attrs({
+            x: 8,
+            y: ground2y - 20,
+            fill: '#414e5e',
+        }).text(`- ${opponent['team']}`);
 
     };
 
@@ -461,7 +517,7 @@ const lineUp = new function() {
     this.renew = function() {
         title.selectAll('*').remove();
         content.selectAll('*').remove();
-    }
+    };
     this.draw = function(team, opponent) {
 
         const col = [ 'Left', 'Center', 'Right',  ];
@@ -528,8 +584,7 @@ const lineUp = new function() {
                 y: y,
                 fill: '#414e5e',
             }).attr('alignment-baseline', 'hanging').attr('text-anchor', 'middle').text(col[ i ]);
-        }
-        ;
+        };
 
     }
 };

@@ -101,7 +101,7 @@ image {
       box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1); }
       .container .content .side-wrapper .top {
         width: 100%;
-        height: calc(calc(100vh - 80px) * 4 / 7); }
+        height: 100%; }
 
 .comparison-chart {
   width: 100%;
@@ -111,9 +111,9 @@ image {
     width: 100%;
     padding: 4px; }
     .comparison-chart .wrap.possession {
-      height: 60%; }
+      height: 70%; }
     .comparison-chart .wrap.attack-direction {
-      height: 40%; }
+      height: 30%; }
     .comparison-chart .wrap .flex-wrapper #possession-view {
       max-width: 380px;
       width: 100%;
