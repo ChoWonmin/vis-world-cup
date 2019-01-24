@@ -314,29 +314,28 @@ const possesionView = new function() {
 
     const g = root.append('g');
     const title = g.append('g');
-    const ground1 = g.append('g');
-    const ground2 = g.append('g');
+    const ground = g.append('g');
 
     const groundWidth = width - 2;
-    const groundHeight = height * 1 / 3;
+    const groundHeight = height * 1 / 2;
 
-    const ground1y = height / 5 + 28;
-    const ground2y = height / 5 + 74 + groundHeight;
+    const groundy = height / 4 + 28;
+    const groundColor = '#81C784';
+
+    const barcolor = '#fad349';
+    const barcolorOpponent = '#807c70';
 
     title.attr('transform', 'translate(0,' + 4 + ')');
-    ground1.attr('transform', 'translate(0,' + ground1y + ')');
-    ground2.attr('transform', 'translate(0,' + ground2y + ')');
+    ground.attr('transform', 'translate(0,' + groundy + ')');
 
     this.init = function() {
         title.selectAll('*').remove();
-        ground1.selectAll('*').remove();
-        ground2.selectAll('*').remove();
+        ground.selectAll('*').remove();
     };
 
     this.addEvent = function(team, opponent) {
         title.selectAll('*').remove();
-        ground1.selectAll('*').remove();
-        ground2.selectAll('*').remove();
+        ground.selectAll('*').remove();
         this.draw(0, team, opponent);
     };
 
@@ -373,20 +372,28 @@ const possesionView = new function() {
             y: 44,
             fill: '#414e5e',
         }).attr('font-size', '20px').text(data[ 'score' ]);
-/*
+
+        ground.append('rect').attrs({
+            x: 0,
+            y: 0,
+            width: groundWidth,
+            height: groundHeight,
+            fill: groundColor,
+        });
         ground.append('circle').attrs({
             cx: groundWidth/2,
             cy: groundHeight/2,
             r: 40,
             stroke: '#efefef',
-            opacity: 0
+            fill: groundColor
         });
         ground.append('rect').attrs({
-            x: groundWidth/2,
+            x: groundWidth/2 - 1/2,
             y: 0,
-            width: 2,
+            width: 1,
             height: groundHeight,
-            fill: '#efefef'
+            stroke: '#efefef',
+            fill: groundColor
         });
         ground.append('rect').attrs({
             x: 0,
@@ -394,6 +401,7 @@ const possesionView = new function() {
             width: 40,
             height: 80,
             stroke: '#efefef',
+            fill: groundColor
         });
         ground.append('rect').attrs({
             x: groundWidth - 40,
@@ -401,25 +409,71 @@ const possesionView = new function() {
             width: 40,
             height: 80,
             stroke: '#efefef',
+            fill: groundColor
         });
-*/
+
+        for (let i=1; i<3; i++) {
+
+            ground.append('rect').attrs({
+                x: groundWidth/3 * i,
+                y: 0,
+                width: 1,
+                height: groundHeight,
+                stroke: '#062546',
+                opacity: 0.3
+            });
+
+            ground.append('rect').attrs({
+                x: 0,
+                y: groundHeight/3 * i,
+                width: groundWidth,
+                height: 1,
+                stroke: '#062546',
+                opacity: 0.3
+            });
+
+        };
+
         for (let i = 0; i < 3; i++) {
             for (let j = 0; j < 3; j++) {
                 const heatMapX = heatMapWidth * j;
-                const heatMapY = heatMapHeight * i;
+                const heatMapY = heatMapHeight * (i+1);
 
-                ground1.append('rect').attrs({
-                    x: heatMapX + x,
-                    y: heatMapY,
-                    width: heatMapWidth,
-                    height: heatMapHeight,
-                    fill: 'darkgreen',
-                }).style('opacity', 0.2 + 0.03 * data[ Constant.position[ i ][ j ] ]);
-                ground1.append('text').attrs({
-                    x: heatMapX + 20 + x,
-                    y: heatMapY + 20,
-                    fill: '#fafafa',
-                }).text(`${data[ Constant.position[ i ][ j ]]}%`);
+                const possession = data[ Constant.position[ i ][ j ]];
+                const possessionOpponent = data[ Constant.position[ i ][ 2-j ]];
+
+                const barWidth = 10;
+                const barHeight = heatMapHeight * (possession*data['possession']) / 4000;
+                const barHeightOpponent = heatMapHeight * (possessionOpponent*opponent['possession']) / 4000;
+
+                ground.append('rect').attrs({
+                    x: heatMapX + heatMapWidth/2 - barWidth,
+                    y: heatMapY - 2 - barHeight,
+                    width: barWidth,
+                    height: barHeight,
+                    fill: barcolor,
+                });
+
+                ground.append('text').attrs({
+                    x: heatMapX + heatMapWidth/2 - 2,
+                    y: heatMapY - 8 - barHeight,
+                    fill: '#414e5e',
+                }).attr('text-anchor', 'end').text(`${Math.floor(possession*data['possession']/100)}% (${possession}%)`).attr('font-size','8px');
+
+                ground.append('rect').attrs({
+                    x: heatMapX + heatMapWidth/2,
+                    y: heatMapY - 2 - barHeightOpponent,
+                    width: barWidth,
+                    height: barHeightOpponent,
+                    fill: barcolorOpponent
+                });
+
+                ground.append('text').attrs({
+                    x: heatMapX + heatMapWidth/2 + 2,
+                    y: heatMapY - 8 - barHeightOpponent,
+                    fill: '#414e5e',
+                }).text(`${Math.floor(possessionOpponent*opponent['possession']/100)}%(${possessionOpponent}%)`).attr('font-size','8px');
+
             };
         };
 
@@ -447,56 +501,39 @@ const possesionView = new function() {
             fill: '#414e5e',
         }).attr('text-anchor', 'end').attr('font-size', '20px').text(opponent[ 'score' ]);
 
-        for (var i = 0; i < 3; i++) {
-            for (var j = 0; j < 3; j++) {
-                const heatMapX = heatMapWidth * j;
-                const heatMapY = heatMapHeight * i;
-
-                ground2.append('rect').attrs({
-                    x: heatMapX + x,
-                    y: heatMapY,
-                    width: heatMapWidth,
-                    height: heatMapHeight,
-                    fill: 'darkgreen',
-                }).style('opacity', 0.2 + 0.03 * opponent[Constant.position[i][j]]);
-                ground2.append('text').attrs({
-                    x: heatMapX + 20 + x,
-                    y: heatMapY + 20,
-                    fill: '#fafafa',
-                }).text(`${opponent[Constant.position[i][j]]}%`);
-            }
-            ;
-        };
-
         title.append('text').attrs({
             x: 8,
-            y: ground1y - 48,
+            y: groundy - 48,
             fill: '#414e5e',
         }).text('Ball Possession');
 
-        title.append('text').attrs({
-            x: width - 160,
-            y: ground1y - 16,
-            fill: '#414e5e',
-        }).text('Attack Direction =>').style('font-weight','bold').style('font-size', '10px');
+        title.append('rect').attrs({
+            x: width/2 - 80 * data['possession']/100,
+            y: groundy - 34,
+            width: 80 * data['possession']/100,
+            height: 22,
+            fill: barcolor
+        });
+
+        title.append('rect').attrs({
+            x: width/2,
+            y: groundy - 34,
+            width: 80 * opponent['possession']/100,
+            height: 22,
+            fill: barcolorOpponent
+        });
 
         title.append('text').attrs({
-            x: width - 160,
-            y: ground2y - 16,
+            x: width/2 - 60,
+            y: groundy - 20,
             fill: '#414e5e',
-        }).text('Attack Direction =>').style('font-weight','bold').style('font-size', '10px');
+        }).attr('text-anchor', 'end').text(`${data['possession']}%`);
 
         title.append('text').attrs({
-            x: 8,
-            y: ground1y - 20,
+            x: width/2 + 60,
+            y: groundy - 20,
             fill: '#414e5e',
-        }).text(`- ${data['team']}`);
-
-        title.append('text').attrs({
-            x: 8,
-            y: ground2y - 20,
-            fill: '#414e5e',
-        }).text(`- ${opponent['team']}`);
+        }).text(`${opponent[ 'possession' ]}%`);
 
     };
 
@@ -518,6 +555,7 @@ const lineUp = new function() {
         title.selectAll('*').remove();
         content.selectAll('*').remove();
     };
+
     this.draw = function(team, opponent) {
 
         const col = [ 'Left', 'Center', 'Right',  ];
@@ -554,6 +592,7 @@ const lineUp = new function() {
             content.append('rect').attrs({
                 x: groundWidth - 8 - w,
                 y: y,
+                rx: 6,
                 width: w,
                 height: h,
                 fill: '#e73c46',
@@ -569,6 +608,7 @@ const lineUp = new function() {
             content.append('rect').attrs({
                 x: width - groundWidth + 8,
                 y: y,
+                rx: 6,
                 width: w,
                 height: h,
                 fill: '#e73c46',
@@ -806,7 +846,6 @@ const parallel = new function() {
             height: height + 30,
             border: '3px solid #ccc'
         });
-        console.log(nations)
 
         this.render = function() {
             _.forEach(nations, (nation, i) => {
