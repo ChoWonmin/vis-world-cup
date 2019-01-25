@@ -7,10 +7,10 @@ const Constant = {
     'LPP_SPP', 'LPC_SPC', 'LPC_LPA', 'Opponent', 'side', 'cluster', 'fouls', 'formation', 'LPP', 'SPP', 'side_attack'],
   mappingColumns: { team: true, formation: true, Opponent: true },
   columneByPathColor: 'cluster',
-  win: '#f7c45f',
+  win: '#f2b931',
   draw1: '#f5efe4',
   draw2: '#e7cebf',
-  lose: '#d65353',
+  lose: '#726fd5',
 
   /*
    color: {
@@ -57,7 +57,7 @@ const Constant = {
     1: '#F44336',
     2: '#4CAF50',
     3: '#4797d3',
-    4: '#ecaa41',
+    4: '#f7882f',
   },
 
   position: [
@@ -451,8 +451,7 @@ const possesionView = new function () {
         opacity: 0.3
       });
 
-    }
-    ;
+    };
 
     for (let i = 0; i < 3; i++) {
       for (let j = 0; j < 3; j++) {
@@ -475,12 +474,20 @@ const possesionView = new function () {
         });
 
         ground.append('text').attrs({
-          x: heatMapX + heatMapWidth / 2 - 2,
-          y: heatMapY - 8 - barHeight,
+          x: heatMapX + heatMapWidth / 2 - 8,
+          y: heatMapY - 20 - barHeight,
           fill: '#414e5e',
         }).attr('text-anchor', 'end')
           .attr('font-weight','bold')
-          .text(`${Math.floor(possession * data['possession'] / 100)}% (${possession}%)`)
+          .text(`${Math.floor(possession * data['possession'] / 100)}%`)
+          .attr('font-size', '10px');
+
+        ground.append('text').attrs({
+          x: heatMapX + heatMapWidth / 2 - 8,
+          y: heatMapY - 8 - barHeight,
+          fill: '#414e5e',
+        }).attr('text-anchor', 'end')
+          .text(`(${possession}%)`)
           .attr('font-size', '8px');
 
         ground.append('rect').attrs({
@@ -492,11 +499,18 @@ const possesionView = new function () {
         });
 
         ground.append('text').attrs({
-          x: heatMapX + heatMapWidth / 2 + 2,
-          y: heatMapY - 8 - barHeightOpponent,
+          x: heatMapX + heatMapWidth / 2 + 8,
+          y: heatMapY - 20 - barHeightOpponent,
           fill: '#414e5e',
         }).attr('font-weight','bold')
-          .text(`${Math.floor(possessionOpponent * opponent['possession'] / 100)}%(${possessionOpponent}%)`)
+          .text(`${Math.floor(possessionOpponent * opponent['possession'] / 100)}%`)
+          .attr('font-size', '10px');
+
+        ground.append('text').attrs({
+          x: heatMapX + heatMapWidth / 2 + 8,
+          y: heatMapY - 8 - barHeightOpponent,
+          fill: '#414e5e',
+        }).text(`(${possessionOpponent}%)`)
           .attr('font-size', '8px');
 
       };
@@ -584,10 +598,11 @@ const lineUp = new function () {
   const footer = g.append('g');
 
   ground.attr('transform', 'translate(0,' + 20 + ')');
-  footer.attr('transform', 'translate(0,' + (groundHeight+20) + ')');
+  footer.attr('transform', 'translate(140,' + (groundHeight+20) + ')');
   this.renew = function () {
     title.selectAll('*').remove();
     ground.selectAll('*').remove();
+    footer.selectAll('*').remove();
   };
 
   this.draw = function (team, opponent) {
@@ -713,7 +728,7 @@ const lineUp = new function () {
       ground.append('text').attrs({
         x: padding + (teamlength+8) / 2,
         y: y,
-        fill: '#414e5e',
+        fill: '#4b4b4b'
       }).attr('text-anchor','middle')
         .attr('alignment-baseline','central')
         .attr('font-weight','bold')
@@ -738,7 +753,7 @@ const lineUp = new function () {
       ground.append('text').attrs({
         x: groundWidth - padding - (opponentlength+8) / 2,
         y: y,
-        fill: '#414e5e',
+        fill: '#4b4b4b',
       }).attr('text-anchor','middle')
         .attr('alignment-baseline','central')
         .attr('font-weight','bold')
@@ -756,41 +771,41 @@ const lineUp = new function () {
         .attr('fill', Constant.win);
 
       footer.append('text').attrs({
-        x: 40,
+        x: 36,
         y: 10,
         fill: '#414e5e',
       }).attr('alignment-baseline','hanging').text('win');
 
       footer.append('rect')
-        .attr('x', 10)
-        .attr('y', 26)
+        .attr('x', 66)
+        .attr('y', 10)
         .attr('width', 10)
         .attr('height', labelHeight)
         .attr('fill', Constant.draw1);
 
       footer.append('rect')
-        .attr('x', 20)
-        .attr('y', 26)
+        .attr('x', 76)
+        .attr('y', 10)
         .attr('width', 10)
         .attr('height', labelHeight)
         .attr('fill', Constant.draw2);
 
       footer.append('text').attrs({
-        x: 40,
-        y: 26,
+        x: 92,
+        y: 10,
         fill: '#414e5e',
       }).attr('alignment-baseline','hanging').text('draw');
 
       footer.append('rect')
-        .attr('x', 10)
-        .attr('y', 42)
+        .attr('x', 132)
+        .attr('y', 10)
         .attr('width', 20)
         .attr('height', labelHeight)
         .attr('fill', Constant.lose);
 
       footer.append('text').attrs({
-        x: 40,
-        y: 42,
+        x: 158,
+        y: 10,
         fill: '#414e5e',
       }).attr('alignment-baseline','hanging').text('lose');
     };
