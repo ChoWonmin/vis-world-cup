@@ -7,6 +7,10 @@ const Constant = {
     'LPP_SPP', 'LPC_SPC', 'LPC_LPA', 'Opponent', 'side', 'cluster', 'fouls', 'formation', 'LPP', 'SPP', 'side_attack'],
   mappingColumns: { team: true, formation: true, Opponent: true },
   columneByPathColor: 'cluster',
+  win: '#f7c45f',
+  draw1: '#f5efe4',
+  draw2: '#e7cebf',
+  lose: '#d65353',
 
   /*
    color: {
@@ -319,11 +323,8 @@ const possesionView = new function () {
   const groundWidth = width - 2;
   const groundHeight = height * 1 / 2;
 
-  const groundy = height / 4 + 28;
+  const groundy = height / 3 + 28;
   const groundColor = '#81C784';
-
-  const barcolor = '#fad349';
-  const barcolorOpponent = '#807c70';
 
   title.attr('transform', 'translate(0,' + 4 + ')');
   ground.attr('transform', 'translate(0,' + groundy + ')');
@@ -342,6 +343,24 @@ const possesionView = new function () {
   this.draw = function (x, data, opponent) {
     const heatMapWidth = groundWidth / 3;
     const heatMapHeight = groundHeight / 3;
+
+    let barcolor = undefined;
+    let barcolorOpponent = undefined;
+
+    switch (data.result) {
+      case 'w':
+        barcolor = Constant.win;
+        barcolorOpponent = Constant.lose;
+        break;
+      case 'd':
+        barcolor = Constant.draw1;
+        barcolorOpponent = Constant.draw2;
+        break;
+      case 'l':
+        barcolor = Constant.lose;
+        barcolorOpponent = Constant.win;
+        break;
+    }
 
     const svg = title.append('svg').attrs({
       width: width,
@@ -443,12 +462,12 @@ const possesionView = new function () {
         const possession = data[Constant.position[i][j]];
         const possessionOpponent = data[Constant.position[i][2 - j]];
 
-        const barWidth = 10;
+        const barWidth = 30;
         const barHeight = heatMapHeight * (possession * data['possession']) / 4000;
         const barHeightOpponent = heatMapHeight * (possessionOpponent * opponent['possession']) / 4000;
 
         ground.append('rect').attrs({
-          x: heatMapX + heatMapWidth / 2 - barWidth,
+          x: heatMapX + heatMapWidth / 2 - barWidth - 8,
           y: heatMapY - 2 - barHeight,
           width: barWidth,
           height: barHeight,
@@ -459,10 +478,13 @@ const possesionView = new function () {
           x: heatMapX + heatMapWidth / 2 - 2,
           y: heatMapY - 8 - barHeight,
           fill: '#414e5e',
-        }).attr('text-anchor', 'end').text(`${Math.floor(possession * data['possession'] / 100)}% (${possession}%)`).attr('font-size', '8px');
+        }).attr('text-anchor', 'end')
+          .attr('font-weight','bold')
+          .text(`${Math.floor(possession * data['possession'] / 100)}% (${possession}%)`)
+          .attr('font-size', '8px');
 
         ground.append('rect').attrs({
-          x: heatMapX + heatMapWidth / 2,
+          x: heatMapX + heatMapWidth / 2 + 8,
           y: heatMapY - 2 - barHeightOpponent,
           width: barWidth,
           height: barHeightOpponent,
@@ -473,12 +495,12 @@ const possesionView = new function () {
           x: heatMapX + heatMapWidth / 2 + 2,
           y: heatMapY - 8 - barHeightOpponent,
           fill: '#414e5e',
-        }).text(`${Math.floor(possessionOpponent * opponent['possession'] / 100)}%(${possessionOpponent}%)`).attr('font-size', '8px');
+        }).attr('font-weight','bold')
+          .text(`${Math.floor(possessionOpponent * opponent['possession'] / 100)}%(${possessionOpponent}%)`)
+          .attr('font-size', '8px');
 
-      }
-      ;
-    }
-    ;
+      };
+    };
 
     svg.append('svg:image').attrs({
       'xlink:href': Constant.dicetory + Constant.path['flag'] + Constant.mappingData['image'][opponent['team']],
@@ -503,6 +525,12 @@ const possesionView = new function () {
       y: 44,
       fill: '#414e5e',
     }).attr('text-anchor', 'end').attr('font-size', '20px').text(opponent['score']);
+
+    title.append('text').attrs({
+      x: width/2,
+      y: 44,
+      fill: '#414e5e',
+    }).attr('text-anchor', 'middle').attr('font-size', '20px').text(':');
 
     title.append('text').attrs({
       x: 8,
@@ -553,8 +581,10 @@ const lineUp = new function () {
   const g = root.append('g');
   const title = g.append('g');
   const ground = g.append('g');
+  const footer = g.append('g');
 
   ground.attr('transform', 'translate(0,' + 20 + ')');
+  footer.attr('transform', 'translate(0,' + (groundHeight+20) + ')');
   this.renew = function () {
     title.selectAll('*').remove();
     ground.selectAll('*').remove();
@@ -563,7 +593,24 @@ const lineUp = new function () {
   this.draw = function (team, opponent) {
 
     const col = ['Left', 'Center', 'Right',];
-    const arrowColor = '#fefefe';
+
+    let arrowColor = undefined;
+    let arrowOpponentColor = undefined;
+
+    switch (team.result) {
+      case 'w':
+        arrowColor = Constant.win;
+        arrowOpponentColor = Constant.lose;
+        break;
+      case 'd':
+        arrowColor = Constant.draw1;
+        arrowOpponentColor = Constant.draw2;
+        break;
+      case 'l':
+        arrowColor = Constant.lose;
+        arrowOpponentColor = Constant.win;
+        break;
+    }
 
     title.append('text').attrs({
       x: 8,
@@ -622,6 +669,18 @@ const lineUp = new function () {
       .attr('d', 'M0,-5L5,0L0,5')
       .style('fill', arrowColor);
 
+    ground.append('svg:defs').append('svg:marker')
+      .attr('id', 'arrowO')
+      .attr('refX', 0)
+      .attr('refY', 0)
+      .attr('markerWidth', 6)
+      .attr('markerHeight', 6)
+      .attr('orient', 'auto')
+      .attr('viewBox', '0 -5 10 10')
+      .append('path')
+      .attr('d', 'M0,-5L5,0L0,5')
+      .style('fill', arrowOpponentColor);
+
     for (let i = 0; i < 3; i++) {
       const teamData = team[col[i]];
       const opponentData = opponent[col[2 - i]];
@@ -652,11 +711,12 @@ const lineUp = new function () {
         .attr('fill', arrowColor);
 
       ground.append('text').attrs({
-        x: padding + teamlength / 2,
+        x: padding + (teamlength+8) / 2,
         y: y,
         fill: '#414e5e',
       }).attr('text-anchor','middle')
         .attr('alignment-baseline','central')
+        .attr('font-weight','bold')
         .attr('font-size','12px').text(`${teamData}%`);
 
       ground.append('line')
@@ -664,25 +724,78 @@ const lineUp = new function () {
         .attr('y1', y)
         .attr('x2', groundWidth - padding - opponentlength)
         .attr('y2', y)
-        .attr('stroke', arrowColor)
+        .attr('stroke', arrowOpponentColor)
         .attr('stroke-width', 6)
-        .attr('marker-end', 'url(#arrow)');
+        .attr('marker-end', 'url(#arrowO)');
 
       ground.append('rect')
         .attr('x', groundWidth - padding - opponentlength)
         .attr('y', y - 10)
         .attr('width', opponentlength)
         .attr('height', 20)
-        .attr('fill', arrowColor);
+        .attr('fill', arrowOpponentColor);
 
       ground.append('text').attrs({
-        x: groundWidth - padding - opponentlength / 2,
+        x: groundWidth - padding - (opponentlength+8) / 2,
         y: y,
         fill: '#414e5e',
       }).attr('text-anchor','middle')
         .attr('alignment-baseline','central')
+        .attr('font-weight','bold')
         .attr('font-size','12px').text(`${opponentData}%`);
     };
+
+    const drawFooter = () => {
+      const labelHeight = 16;
+
+      footer.append('rect')
+        .attr('x', 10)
+        .attr('y', 10)
+        .attr('width', 20)
+        .attr('height', labelHeight)
+        .attr('fill', Constant.win);
+
+      footer.append('text').attrs({
+        x: 40,
+        y: 10,
+        fill: '#414e5e',
+      }).attr('alignment-baseline','hanging').text('win');
+
+      footer.append('rect')
+        .attr('x', 10)
+        .attr('y', 26)
+        .attr('width', 10)
+        .attr('height', labelHeight)
+        .attr('fill', Constant.draw1);
+
+      footer.append('rect')
+        .attr('x', 20)
+        .attr('y', 26)
+        .attr('width', 10)
+        .attr('height', labelHeight)
+        .attr('fill', Constant.draw2);
+
+      footer.append('text').attrs({
+        x: 40,
+        y: 26,
+        fill: '#414e5e',
+      }).attr('alignment-baseline','hanging').text('draw');
+
+      footer.append('rect')
+        .attr('x', 10)
+        .attr('y', 42)
+        .attr('width', 20)
+        .attr('height', labelHeight)
+        .attr('fill', Constant.lose);
+
+      footer.append('text').attrs({
+        x: 40,
+        y: 42,
+        fill: '#414e5e',
+      }).attr('alignment-baseline','hanging').text('lose');
+    };
+    drawFooter();
+
   };
 };
 const heatMap = new function () {
