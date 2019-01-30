@@ -697,15 +697,12 @@ const lineUp = new function () {
       .style('fill', arrowOpponentColor);
 
     for (let i = 0; i < 3; i++) {
-      const teamData = team[col[i]];
-      const opponentData = opponent[col[2 - i]];
+      const teamData = team[col[i]]*1;
+      const opponentData = opponent[col[2 - i]]*1;
 
       const y = groundHeight / 3 * i + groundHeight / 6;
-      const teamlength = teamData * (width / 2) / 100;
-      const opponentlength = opponentData * (width / 2) / 100;
-
-      const teamHeight = teamData * 40 / 100;
-      const opponentHeight = opponentData * 40 / 100;
+      const teamlength = (teamData+1) * (width / 2) / 100;
+      const opponentlength = (opponentData+1) * (width / 2) / 100;
 
       const padding = 24;
 
